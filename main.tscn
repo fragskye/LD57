@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://b15tlakq3bnb7"]
+[gd_scene load_steps=3 format=3 uid="uid://b15tlakq3bnb7"]
+
+[ext_resource type="PackedScene" uid="uid://dewdjf5vhfomt" path="res://environment.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dmtg5nl51aom8" path="res://assets/player/player.tscn" id="2_0xm2m"]
 
 [node name="Main" type="Node3D"]
+
+[node name="Environment" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="Player" parent="." instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -99, 0)
+use_collision = true

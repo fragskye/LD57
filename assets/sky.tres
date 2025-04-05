@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://yaq2oyu01vsn"]
+
+[ext_resource type="Shader" uid="uid://t81kt76u5q6q" path="res://shaders/sky.gdshader" id="1_5s28x"]
+
+[resource]
+shader = ExtResource("1_5s28x")
+shader_parameter/sky_color = Color(0.6, 0.8, 1, 1)
+shader_parameter/sky_color_intensity = 1.0
