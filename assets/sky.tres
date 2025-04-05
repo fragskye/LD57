@@ -5,4 +5,4 @@
 [resource]
 shader = ExtResource("1_5s28x")
 shader_parameter/sky_color = Color(0.6, 0.8, 1, 1)
-shader_parameter/sky_color_intensity = 1.0
+shader_parameter/sky_color_intensity = 1.5

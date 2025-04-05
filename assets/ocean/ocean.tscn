@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://duncyhaso1fl8"]
+
+[ext_resource type="PackedScene" uid="uid://or5pbk08kyk2" path="res://assets/ocean/ocean.glb" id="1_soejs"]
+
+[node name="Ocean" instance=ExtResource("1_soejs")]
+
+[node name="Ocean" parent="." index="0"]
+cast_shadow = 0

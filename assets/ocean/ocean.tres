@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bhxpqn3epgh4w"]
+
+[ext_resource type="Shader" uid="uid://f0n1f2xjmcp3" path="res://shaders/ocean.gdshader" id="1_sgvsp"]
+[ext_resource type="FastNoiseLite" uid="uid://ct23iddv7acfy" path="res://assets/ocean/ocean_detail_noise.tres" id="2_3muy7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3muy7"]
+seamless = true
+as_normal_map = true
+noise = ExtResource("2_3muy7")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2pclg"]
+seamless = true
+noise = ExtResource("2_3muy7")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_sgvsp")
+shader_parameter/albedo = Color(0, 0.247059, 0.882353, 1)
+shader_parameter/ocean_detail_texture = SubResource("NoiseTexture2D_2pclg")
+shader_parameter/ocean_detail_normal_texture = SubResource("NoiseTexture2D_3muy7")
