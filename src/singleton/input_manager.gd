@@ -4,13 +4,16 @@ enum InputState { MENU, THIRD_PERSON, THROW_MINIGAME, BATTERY_CAMERA, CUTSCENE }
 
 signal input_state_changed(old_state: InputState, new_state: InputState)
 
-const DEFAULT_INPUT_STATE: InputState = InputState.THROW_MINIGAME
+const DEFAULT_INPUT_STATE: InputState = InputState.THIRD_PERSON
 
 var input_state_stack: Array[InputState] = []
 
 func _ready() -> void:
 	input_state_stack.push_back(DEFAULT_INPUT_STATE)
 	input_state_changed.connect(_on_input_state_changed)
+	input_state_changed.emit(DEFAULT_INPUT_STATE, DEFAULT_INPUT_STATE)
+	input_state_changed.emit(DEFAULT_INPUT_STATE, DEFAULT_INPUT_STATE)
+	await get_tree().process_frame
 	input_state_changed.emit(DEFAULT_INPUT_STATE, DEFAULT_INPUT_STATE)
 
 func _on_input_state_changed(_old_state: InputState, new_state: InputState) -> void:

@@ -1,5 +1,6 @@
 class_name Player extends CharacterBody3D
 
+@onready var player_camera: Camera3D = %PlayerCamera
 @onready var camera_rig: PlayerCameraRig = %PlayerCameraRig
 
 @export var move_speed: float = 5.0
@@ -44,6 +45,7 @@ func _on_input_state_changed(old_state: InputManager.InputState, new_state: Inpu
 	match new_state:
 		InputManager.InputState.THIRD_PERSON:
 			show()
+			player_camera.make_current()
 			process_mode = Node.PROCESS_MODE_PAUSABLE
 		InputManager.InputState.THROW_MINIGAME:
 			hide()

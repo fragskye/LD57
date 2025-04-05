@@ -2,6 +2,7 @@ class_name ThrowMinigame extends Node3D
 
 signal power_result(power: float)
 
+@onready var throw_camera: Camera3D = %ThrowCamera
 @onready var throw_minigame_layer: CanvasLayer = %ThrowMinigameLayer
 @onready var skill_check: SkillCheck = %SkillCheck
 @onready var power_bar: ProgressBar = %PowerBar
@@ -28,7 +29,6 @@ var time_passed: float = 0.0
 
 func _ready() -> void:
 	InputManager.input_state_changed.connect(_on_input_state_changed)
-	Engine.time_scale = 1.0
 
 func reset() -> void:
 	skill_checks_complete = 0
@@ -60,12 +60,16 @@ func _on_skill_check_target_complete() -> void:
 		power_result.emit(power)
 
 func _on_input_state_changed(old_state: InputManager.InputState, new_state: InputManager.InputState) -> void:
+	if old_state == InputManager.InputState.MENU || new_state == InputManager.InputState.MENU:
+		return
+	
 	match new_state:
 		InputManager.InputState.THROW_MINIGAME:
 			show()
+			throw_camera.make_current()
 			throw_minigame_layer.show()
 			process_mode = Node.PROCESS_MODE_PAUSABLE
-		InputManager.InputState.BATTERY_CAMERA:
+		_:
 			hide()
 			throw_minigame_layer.hide()
 			process_mode = Node.PROCESS_MODE_DISABLED
