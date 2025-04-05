@@ -21,6 +21,7 @@ var target_angle: float = 0.0
 @export var target_arc_length: float = 0.0
 var target_disabled: bool = false
 @export var miss_margin: float = 5.0
+var can_miss_early: bool = true
 
 @export var next_target_angle_offset: float = 90.0
 @export var next_target_arc_length: float = 30.0
@@ -34,13 +35,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	bar_angle = wrapf(bar_angle + bar_spin_speed * delta, 0.0, 360.0)
 	var missed_main: bool = bar_angle > target_angle + target_arc_length && bar_angle <= target_angle + target_arc_length + 5.0
-	var missed_wrap: bool = target_angle + target_arc_length > 360.0 && bar_angle > target_angle + target_arc_length - 360.0 && bar_angle <= target_angle + target_arc_length - 360.0 + 5.0
+	var missed_wrap: bool = target_angle + target_arc_length + 5.0 > 360.0 && bar_angle > target_angle + target_arc_length - 360.0 && bar_angle <= target_angle + target_arc_length - 360.0 + 5.0
 	if missed_main || missed_wrap:
 		if !target_disabled:
 			target_disabled = true
 			target_missed.emit()
 	var complete_main: bool = bar_angle > target_angle + target_arc_length + miss_margin && bar_angle <= target_angle + target_arc_length + miss_margin + 5.0
-	var complete_wrap: bool = target_angle + target_arc_length > 360.0 && bar_angle > target_angle + target_arc_length - 360.0 + miss_margin && bar_angle <= target_angle + target_arc_length - 360.0 + miss_margin + 5.0
+	var complete_wrap: bool = target_angle + target_arc_length + miss_margin + 5.0 > 360.0 && bar_angle > target_angle + target_arc_length - 360.0 + miss_margin && bar_angle <= target_angle + target_arc_length - 360.0 + miss_margin + 5.0
 	if complete_main || complete_wrap:
 		randomize_target()
 		target_complete.emit()
@@ -69,7 +70,7 @@ func press_bar() -> void:
 		randomize_target()
 		target_hit.emit()
 		target_complete.emit()
-	else:
+	elif can_miss_early:
 		target_disabled = true
 		target_missed.emit()
 

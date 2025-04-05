@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dcyaam8iyq82x"
-path="res://.godot/imported/parasail.glb-ff4261e6a05aab6124555883541d3715.scn"
+path="res://.godot/imported/parasail.glb-1a7d41a7c1a76034ed39739fac19df8d.scn"
 
 [deps]
 
-source_file="res://BeachItems/Umbrella/parasail.glb"
-dest_files=["res://.godot/imported/parasail.glb-ff4261e6a05aab6124555883541d3715.scn"]
+source_file="res://assets/BeachItems/Umbrella/parasail.glb"
+dest_files=["res://.godot/imported/parasail.glb-1a7d41a7c1a76034ed39739fac19df8d.scn"]
 
 [params]
 

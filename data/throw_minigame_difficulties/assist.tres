@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ThrowMinigameDifficulty" load_steps=2 format=3 uid="uid://dpn3cfa1xjsx4"]
+
+[ext_resource type="Script" uid="uid://btxr7xuethjml" path="res://assets/throw_minigame/throw_minigame_difficulty.gd" id="1_el2ss"]
+
+[resource]
+script = ExtResource("1_el2ss")
+start_speed = 45.0
+end_speed = 45.0
+start_target_angle_offset_range = Vector2(45, 45)
+end_target_angle_offset_range = Vector2(45, 45)
+start_target_arc_length = 75.0
+end_target_arc_length = 75.0
+can_miss_early = false
+metadata/_custom_type_script = "uid://btxr7xuethjml"

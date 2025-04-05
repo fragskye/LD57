@@ -24,9 +24,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1014.05, 105.937, 944.236)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -99, 0)
 use_collision = true
 
-[node name="PauseLayer" parent="." instance=ExtResource("3_h2yge")]
-
 [node name="ThrowMinigame" parent="." instance=ExtResource("5_lquwl")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -997, 105, 946)
 
 [node name="ThrowArea" type="Area3D" parent="."]
@@ -45,5 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 transparency = 0.7
 cast_shadow = 0
 size = Vector3(20, 20, 20)
+
+[node name="PauseLayer" parent="." instance=ExtResource("3_h2yge")]
 
 [connection signal="power_result" from="ThrowMinigame" to="." method="_on_throw_minigame_power_result"]

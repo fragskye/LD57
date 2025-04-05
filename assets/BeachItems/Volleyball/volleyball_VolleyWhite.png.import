@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://lwf0qdy8ww7f"
-path.s3tc="res://.godot/imported/volleyball_VolleyWhite.png-4502fe01e08722b55fed8b071c86fe1e.s3tc.ctex"
+path.s3tc="res://.godot/imported/volleyball_VolleyWhite.png-2b14f6f121d06e80744b6d8ce584d862.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://BeachItems/Volleyball/volleyball_VolleyWhite.png"
-dest_files=["res://.godot/imported/volleyball_VolleyWhite.png-4502fe01e08722b55fed8b071c86fe1e.s3tc.ctex"]
+source_file="res://assets/BeachItems/Volleyball/volleyball_VolleyWhite.png"
+dest_files=["res://.godot/imported/volleyball_VolleyWhite.png-2b14f6f121d06e80744b6d8ce584d862.s3tc.ctex"]
 
 [params]
 

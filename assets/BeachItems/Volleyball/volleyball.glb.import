@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b605nys25q3xm"
-path="res://.godot/imported/volleyball.glb-281c41b26d64dcb9e63224b4e626de83.scn"
+path="res://.godot/imported/volleyball.glb-faa7ae426ff43718401917cf8e8453e7.scn"
 
 [deps]
 
-source_file="res://BeachItems/Volleyball/volleyball.glb"
-dest_files=["res://.godot/imported/volleyball.glb-281c41b26d64dcb9e63224b4e626de83.scn"]
+source_file="res://assets/BeachItems/Volleyball/volleyball.glb"
+dest_files=["res://.godot/imported/volleyball.glb-faa7ae426ff43718401917cf8e8453e7.scn"]
 
 [params]
 

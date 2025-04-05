@@ -6,6 +6,7 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_hgxw1")
+circle_color = Color(0.941176, 0.941176, 0.941176, 1)
 target_disabled_color = Color(0.376471, 0.376471, 0.376471, 1)
 bar_color = Color(0.941176, 0.12549, 0.12549, 1)
 circle_radius = 192.0

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://btom07wshnjwu"
-path="res://.godot/imported/battery.glb-44dc0faae5e742974cd4423b58f4490f.scn"
+path="res://.godot/imported/battery.glb-51a5d4303cd03d0f08603ecc5375393f.scn"
 
 [deps]
 
-source_file="res://BeachItems/CarBattery/battery.glb"
-dest_files=["res://.godot/imported/battery.glb-44dc0faae5e742974cd4423b58f4490f.scn"]
+source_file="res://assets/BeachItems/CarBattery/battery.glb"
+dest_files=["res://.godot/imported/battery.glb-51a5d4303cd03d0f08603ecc5375393f.scn"]
 
 [params]
 

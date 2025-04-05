@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d215cinx6g4r7"
-path="res://.godot/imported/cooler.glb-a46a1f33fdcb2feb58607db2647e7d04.scn"
+path="res://.godot/imported/cooler.glb-265f5c173441e7ef64e36f2592030137.scn"
 
 [deps]
 
-source_file="res://BeachItems/Cooler/cooler.glb"
-dest_files=["res://.godot/imported/cooler.glb-a46a1f33fdcb2feb58607db2647e7d04.scn"]
+source_file="res://assets/BeachItems/Cooler/cooler.glb"
+dest_files=["res://.godot/imported/cooler.glb-265f5c173441e7ef64e36f2592030137.scn"]
 
 [params]
 

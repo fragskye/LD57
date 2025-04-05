@@ -1,17 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwdgeanw1kj7s"]
+[gd_scene load_steps=8 format=3 uid="uid://dwdgeanw1kj7s"]
 
 [ext_resource type="Script" uid="uid://y3xyge4eshrl" path="res://assets/throw_minigame/throw_minigame.gd" id="1_tspaa"]
 [ext_resource type="PackedScene" uid="uid://dof5or2ve224o" path="res://prefabs/ui/skill_check/skill_check.tscn" id="2_3dv1l"]
+[ext_resource type="Script" uid="uid://btxr7xuethjml" path="res://assets/throw_minigame/throw_minigame_difficulty.gd" id="2_htcwl"]
+[ext_resource type="Resource" uid="uid://dpn3cfa1xjsx4" path="res://data/throw_minigame_difficulties/assist.tres" id="3_ariq8"]
+[ext_resource type="Resource" uid="uid://cs07gaub0j01l" path="res://data/throw_minigame_difficulties/normal.tres" id="3_dji5i"]
+[ext_resource type="Resource" uid="uid://bu4vvf4a6vfjx" path="res://data/throw_minigame_difficulties/easy.tres" id="4_x6o8v"]
+[ext_resource type="Resource" uid="uid://cqegsp7iucbo3" path="res://data/throw_minigame_difficulties/hard.tres" id="6_u1i87"]
 
 [node name="ThrowMinigame" type="Node3D"]
 process_mode = 1
 script = ExtResource("1_tspaa")
 hit_power_reward = 0.05
 miss_power_reward = -0.05
+skill_check_count = 40
 time_to_max = 20.0
-end_speed = 360.0
-end_target_angle_offset_range = Vector2(45, 90)
-start_target_arc_length = 60.0
+difficulties = Array[ExtResource("2_htcwl")]([ExtResource("3_ariq8"), ExtResource("4_x6o8v"), ExtResource("3_dji5i"), ExtResource("6_u1i87")])
+npc_difficulty_index = 2
 
 [node name="ThrowCamera" type="Camera3D" parent="."]
 unique_name_in_owner = true
@@ -49,6 +54,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+target_disabled_color = Color(0.376471, 0.376471, 0.376471, 1)
 miss_margin = 15.0
 next_target_angle_offset = 180.0
 next_target_arc_length = 60.0
@@ -63,6 +69,7 @@ anchor_bottom = 1.0
 offset_top = -27.0
 grow_horizontal = 2
 grow_vertical = 0
+value = 50.0
 show_percentage = false
 
 [connection signal="target_complete" from="ThrowMinigameLayer/ThrowMinigameMenu/MarginContainer/Control/SkillCheck" to="." method="_on_skill_check_target_complete"]

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6koarsvlru0w"
-path.s3tc="res://.godot/imported/battery_eelbatter.png-243e46f5cbe8f121902197eca3a106b1.s3tc.ctex"
+path.s3tc="res://.godot/imported/battery_eelbatter.png-59747a5e930debd3c30aa3f3931c1dc5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://BeachItems/CarBattery/battery_eelbatter.png"
-dest_files=["res://.godot/imported/battery_eelbatter.png-243e46f5cbe8f121902197eca3a106b1.s3tc.ctex"]
+source_file="res://assets/BeachItems/CarBattery/battery_eelbatter.png"
+dest_files=["res://.godot/imported/battery_eelbatter.png-59747a5e930debd3c30aa3f3931c1dc5.s3tc.ctex"]
 
 [params]
 
