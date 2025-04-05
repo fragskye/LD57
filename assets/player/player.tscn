@@ -11,7 +11,7 @@
 radius = 0.1
 
 [node name="Player" type="CharacterBody3D"]
-physics_interpolation_mode = 1
+process_mode = 1
 collision_layer = 2
 script = ExtResource("1_d6veg")
 
