@@ -66,7 +66,7 @@ vec4 volumetric_fog(vec3 frag_pos, vec3 ray_pos, float ray_offset) {
 		float sun_transmittance = exp(-distance_to_top * fog_light_density);
 		fog_light += sun_transmittance * exp(-fog_thickness * fog_density) * new_thickness;
 	}
-	
+
 	return vec4(mix(fog_base_color.rgb, fog_light_color.rgb * fog_light_intensity, saturate(fog_light)), 1.0 - exp(-fog_thickness * fog_density));
 }
 

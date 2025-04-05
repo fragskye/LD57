@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwdgeanw1kj7s"]
+
+[ext_resource type="Script" uid="uid://y3xyge4eshrl" path="res://assets/throw_minigame/throw_minigame.gd" id="1_tspaa"]
+[ext_resource type="PackedScene" uid="uid://dof5or2ve224o" path="res://prefabs/ui/skill_check/skill_check.tscn" id="2_3dv1l"]
+
+[node name="ThrowMinigame" type="Node3D"]
+process_mode = 1
+script = ExtResource("1_tspaa")
+hit_power_reward = 0.05
+miss_power_reward = -0.05
+time_to_max = 20.0
+end_speed = 360.0
+end_target_angle_offset_range = Vector2(45, 90)
+start_target_arc_length = 60.0
+
+[node name="ThrowMinigameLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="ThrowMinigameMenu" type="Control" parent="ThrowMinigameLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ThrowMinigameLayer/ThrowMinigameMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="ThrowMinigameLayer/ThrowMinigameMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="SkillCheck" parent="ThrowMinigameLayer/ThrowMinigameMenu/MarginContainer/Control" instance=ExtResource("2_3dv1l")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+miss_margin = 15.0
+next_target_angle_offset = 180.0
+next_target_arc_length = 60.0
+
+[node name="PowerBar" type="ProgressBar" parent="ThrowMinigameLayer/ThrowMinigameMenu/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+show_percentage = false
+
+[connection signal="target_complete" from="ThrowMinigameLayer/ThrowMinigameMenu/MarginContainer/Control/SkillCheck" to="." method="_on_skill_check_target_complete"]
+[connection signal="target_hit" from="ThrowMinigameLayer/ThrowMinigameMenu/MarginContainer/Control/SkillCheck" to="." method="_on_skill_check_target_hit"]
+[connection signal="target_missed" from="ThrowMinigameLayer/ThrowMinigameMenu/MarginContainer/Control/SkillCheck" to="." method="_on_skill_check_target_missed"]

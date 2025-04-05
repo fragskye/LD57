@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dof5or2ve224o"]
+
+[ext_resource type="Script" uid="uid://df8nbnij04gio" path="res://prefabs/ui/skill_check/skill_check.gd" id="1_hgxw1"]
+
+[node name="SkillCheck" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hgxw1")
+target_disabled_color = Color(0.376471, 0.376471, 0.376471, 1)
+bar_color = Color(0.941176, 0.12549, 0.12549, 1)
+circle_radius = 192.0
+circle_width = 4.0
+target_width = 32.0
+bar_length = 96.0
+bar_width = 4.0
+bar_spin_speed = 90.0
+target_arc_length = 30.0

@@ -7,6 +7,9 @@ class_name Player extends CharacterBody3D
 @export var move_smoothing_accel: float = 0.9
 @export var move_smoothing_decel: float = 0.9
 
+func _ready() -> void:
+	InputManager.input_state_changed.connect(_on_input_state_changed)
+
 func _process(_delta: float) -> void:
 	if InputManager.get_input_state() != InputManager.InputState.THIRD_PERSON:
 		return
@@ -36,3 +39,12 @@ func _get_input_direction() -> Vector3:
 	direction.y = 0.0
 	direction = direction.normalized()
 	return direction
+
+func _on_input_state_changed(old_state: InputManager.InputState, new_state: InputManager.InputState) -> void:
+	match new_state:
+		InputManager.InputState.THIRD_PERSON:
+			show()
+			process_mode = Node.PROCESS_MODE_PAUSABLE
+		InputManager.InputState.THROW_MINIGAME:
+			hide()
+			process_mode = Node.PROCESS_MODE_DISABLED

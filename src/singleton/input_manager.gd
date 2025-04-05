@@ -1,10 +1,10 @@
 extends Node
 
-enum InputState { MENU, THIRD_PERSON, CUTSCENE }
+enum InputState { MENU, THIRD_PERSON, THROW_MINIGAME, BATTERY_CAMERA, CUTSCENE }
 
 signal input_state_changed(old_state: InputState, new_state: InputState)
 
-const DEFAULT_INPUT_STATE: InputState = InputState.THIRD_PERSON
+const DEFAULT_INPUT_STATE: InputState = InputState.THROW_MINIGAME
 
 var input_state_stack: Array[InputState] = []
 
