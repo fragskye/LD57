@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b4w8r6k4xgwx6"]
+
+[resource]
+resource_name = "Tip"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5

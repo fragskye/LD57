@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://be3bkykh21km6"]
+
+[resource]
+resource_name = "Pin"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.126575, 0.126575, 0.126575, 1)
+metallic = 0.305263
+roughness = 0.5

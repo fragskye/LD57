@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dgldyykew4vmq"]
+
+[resource]
+resource_name = "CoolerBlue"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.149018, 0.231372, 0.568628, 1)
+roughness = 0.5
