@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	current_score = _depth_score + _collision_score
 
 func _on_collision(body: Node) -> void:
-	if (linear_velocity.length() < depth_score_minimum):
+	if (linear_velocity.length() < collision_score_minimum):
 		return
 	
 	var this_collision_score : float = ceili((linear_velocity.length() - collision_score_minimum) / collision_score_step)
