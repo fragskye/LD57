@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://l3oyh7re1mdl"]
+
+[ext_resource type="Texture2D" uid="uid://cgtsjff3nx1la" path="res://icon.svg" id="1_i4lcm"]
+[ext_resource type="Script" uid="uid://dop4jcq1emlhq" path="res://prefabs/ui/hud/player_score.gd" id="1_wumeh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wumeh"]
+bg_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(1, 0.752941, 0.501961, 1)
+border_blend = true
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_niotf"]
+font_size = 56
+
+[sub_resource type="LabelSettings" id="LabelSettings_wumeh"]
+font_size = 36
+
+[node name="PlayerScore" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_type_variation = &"PlayerScore"
+script = ExtResource("1_wumeh")
+active_stylebox = SubResource("StyleBoxFlat_wumeh")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="PlayerIcon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_i4lcm")
+expand_mode = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerName" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"StrongLabel"
+text = "Name"
+label_settings = SubResource("LabelSettings_niotf")
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerScore" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"StrongLabel"
+text = "0 points"
+label_settings = SubResource("LabelSettings_wumeh")

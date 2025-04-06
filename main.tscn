@@ -49,13 +49,13 @@ transparency = 0.7
 cast_shadow = 0
 size = Vector3(20, 20, 20)
 
-[node name="HUDLayer" parent="." instance=ExtResource("10_efxa6")]
-
-[node name="PauseLayer" parent="." instance=ExtResource("3_h2yge")]
-
 [node name="TumblingBattery" parent="." instance=ExtResource("7_5vw27")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -94.0276, 0)
+
+[node name="HUDLayer" parent="." instance=ExtResource("10_efxa6")]
+
+[node name="PauseLayer" parent="." instance=ExtResource("3_h2yge")]
 
 [connection signal="power_result" from="ThrowMinigame" to="." method="_on_throw_minigame_power_result"]
 [connection signal="score_result" from="TumblingBattery" to="." method="_on_tumbling_battery_score_result"]

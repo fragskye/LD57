@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=4 uid="uid://bt7bxhibhp8nt"]
 
-[ext_resource type="Material" uid="uid://b0ov5mjthg64o" path="res://BeachItems/Chair/Metal.tres" id="1_uqah5"]
-[ext_resource type="Material" uid="uid://be3bkykh21km6" path="res://BeachItems/Chair/Pin.tres" id="2_3f4bg"]
-[ext_resource type="Material" uid="uid://jv0bas1ymw08" path="res://BeachItems/Chair/Wood.tres" id="3_ktwpk"]
-[ext_resource type="Material" uid="uid://q6sng2x7m4ym" path="res://BeachItems/Chair/Fabric.tres" id="4_iaqnc"]
+[ext_resource type="Material" uid="uid://b0ov5mjthg64o" path="res://assets/BeachItems/Chair/Metal.tres" id="1_uqah5"]
+[ext_resource type="Material" uid="uid://be3bkykh21km6" path="res://assets/BeachItems/Chair/Pin.tres" id="2_3f4bg"]
+[ext_resource type="Material" uid="uid://jv0bas1ymw08" path="res://assets/BeachItems/Chair/Wood.tres" id="3_ktwpk"]
+[ext_resource type="Material" uid="uid://q6sng2x7m4ym" path="res://assets/BeachItems/Chair/Fabric.tres" id="4_iaqnc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dt8bl"]
 resource_name = "Fabric"

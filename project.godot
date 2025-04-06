@@ -101,7 +101,7 @@ anti_aliasing/quality/use_debanding=true
 
 fog_density={
 "type": "float",
-"value": 0.03
+"value": 0.04
 }
 fog_light_density={
 "type": "float",
@@ -113,15 +113,15 @@ fog_light_intensity={
 }
 fog_ray_max_depth={
 "type": "float",
-"value": 64.0
+"value": 128.0
 }
 fog_ray_sample_curve={
 "type": "float",
-"value": 2.0
+"value": 1.5
 }
 fog_ray_sample_count={
 "type": "int",
-"value": 32
+"value": 48
 }
 fog_base_color={
 "type": "color",

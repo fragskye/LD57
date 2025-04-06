@@ -23,6 +23,7 @@ func _ready() -> void:
 		player_data.cpu = unused_cpus[cpu_index]
 		unused_cpus.remove_at(cpu_index)
 		Global.players.push_back(player_data)
+	EventBus.players_initialized.emit()
 	EventBus.player_turn_started.emit(Global.players[0])
 	EventBus.throw_area_entered.connect(_on_throw_area_entered)
 
