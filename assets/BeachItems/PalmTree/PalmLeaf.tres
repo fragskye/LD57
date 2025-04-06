@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cprwpchs6e3nr"]
+
+[ext_resource type="Texture2D" uid="uid://cjm5hhvnpewq6" path="res://BeachItems/PalmTree/PalmTree_Plane Base Color.png" id="1_hd2v5"]
+
+[resource]
+resource_name = "Material.001"
+transparency = 1
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_hd2v5")
+roughness = 0.5

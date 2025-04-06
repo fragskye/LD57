@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cf1l3yr3pc3lg"]
+
+[ext_resource type="Texture2D" uid="uid://hui73j7aee0d" path="res://BeachItems/PalmTree/PalmTree_Cylinder Base Color.png" id="1_82ydd"]
+
+[resource]
+resource_name = "Material.003"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_82ydd")
+roughness = 0.5
