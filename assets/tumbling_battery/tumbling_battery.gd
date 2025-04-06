@@ -11,7 +11,7 @@ extends Node3D
 
 var cpu: CPUData = null
 
-var active_battery : RigidBody3D = null
+var active_battery : CarBattery = null
 var still_time: float = 0.0
 
 var _input_state_changed_this_frame: bool = false
@@ -44,8 +44,8 @@ func _spawn_car_battery() -> void:
 	while still_time < still_time_timeout:
 		await get_tree().physics_frame
 	
-	Engine.time_scale = 1.0
-	score_result.emit(100)
+	Engine.time_scale = 1.0 
+	score_result.emit(active_battery.current_score)
 
 func _process(delta: float) -> void:
 	if InputManager.get_input_state() != InputManager.InputState.BATTERY_CAMERA:
