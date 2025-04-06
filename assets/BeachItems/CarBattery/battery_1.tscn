@@ -2,7 +2,7 @@
 
 [ext_resource type="PhysicsMaterial" uid="uid://cuy4wkbp7hd86" path="res://assets/BeachItems/CarBattery/battery_physics_material.tres" id="1_2sgcl"]
 [ext_resource type="Material" uid="uid://bdgwdrg0di5kl" path="res://assets/BeachItems/CarBattery/BlackPlastic.tres" id="2_177yp"]
-[ext_resource type="Script" uid="uid://c5ovj465ulgw5" path="res://assets/BeachItems/CarBattery/car_battery.gd" id="2_jxhla"]
+[ext_resource type="Script" path="res://assets/BeachItems/CarBattery/car_battery.gd" id="2_jxhla"]
 [ext_resource type="Material" uid="uid://c0qt71ckmq720" path="res://assets/BeachItems/CarBattery/MetalBattery.tres" id="3_jxhla"]
 [ext_resource type="Material" uid="uid://hbxcm3bgse5u" path="res://assets/BeachItems/CarBattery/Sticker1.tres" id="4_48uvg"]
 

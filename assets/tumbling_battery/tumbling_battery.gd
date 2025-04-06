@@ -2,7 +2,8 @@ class_name TumblingBattery
 extends Node3D
 
 @onready var car_battery : PackedScene = preload("res://assets/BeachItems/CarBattery/battery_1.tscn")
-@onready var camera_follow : CameraFollowPoint3D = $CameraFollowPoint
+@onready var camera_follow : CameraFollowPoint3D = %CameraFollowPoint
+@onready var vfx_follow: CameraFollowPoint3D = %VFXFollowPoint
 
 @export var camera : Camera3D
 @export var still_time_timeout: float = 1.0
@@ -33,6 +34,7 @@ func _spawn_car_battery() -> void:
 	active_battery = car_battery.instantiate()
 	add_child(active_battery)
 	camera_follow.rigidbody = active_battery
+	vfx_follow.rigidbody = active_battery
 	active_battery.position = Vector3.ZERO
 	# Jolt Physics complains if you apply an impulse before the node has been fully added to the scene tree
 	await get_tree().process_frame

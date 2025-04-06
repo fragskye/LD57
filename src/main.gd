@@ -31,8 +31,10 @@ func _on_throw_minigame_power_result(power: float) -> void:
 	tumbling_battery.reset()
 	tumbling_battery.power = power
 	InputManager.switch_input_state(InputManager.InputState.BATTERY_CAMERA)
+	environment.beach.hide()
 
 func _on_tumbling_battery_score_result(score: int) -> void:
+	environment.beach.show()
 	Global.players[current_player].score += score
 	current_player = (current_player + 1) % Global.player_count
 	EventBus.player_turn_started.emit(Global.players[current_player])
