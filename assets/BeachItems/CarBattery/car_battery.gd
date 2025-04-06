@@ -29,7 +29,6 @@ func _process(delta: float) -> void:
 		_depth_score = 0
 	
 	current_score = _depth_score + _collision_score
-	print(current_score)
 
 func _on_collision(body: Node) -> void:
 	if (linear_velocity.length() < depth_score_minimum):
