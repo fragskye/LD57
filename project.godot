@@ -82,11 +82,15 @@ skill_check={
 
 [layer_names]
 
+3d_physics/layer_1="default"
 3d_physics/layer_2="player"
+3d_physics/layer_3="battery"
 
 [physics]
 
 3d/physics_engine="Jolt Physics"
+jolt_physics_3d/simulation/velocity_steps=30
+jolt_physics_3d/simulation/position_steps=6
 common/physics_interpolation=true
 
 [rendering]

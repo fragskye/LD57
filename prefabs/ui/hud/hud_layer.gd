@@ -5,7 +5,6 @@ class_name HUDLayer extends CanvasLayer
 @onready var player_name: Label = %PlayerName
 @onready var player_score: Label = %PlayerScore
 
-var _input_state_changed_this_frame: bool = false
 var _played_data: PlayerData = null
 
 func _ready() -> void:

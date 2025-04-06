@@ -97,6 +97,11 @@ popup/item_2/id = 2
 popup/item_3/text = "Hard"
 popup/item_3/id = 3
 
+[node name="ThrowMinigameFastCheckBox" type="CheckBox" parent="PauseMenu/MarginContainer/Control/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Throw Minigame Fast"
+
 [connection signal="pressed" from="PauseMenu/MarginContainer/Control/HBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/Control/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="item_selected" from="PauseMenu/MarginContainer/Control/HBoxContainer/VBoxContainer2/HBoxContainer/ThrowMinigameDifficultyOptionButton" to="." method="_on_throw_minigame_difficulty_option_button_item_selected"]
+[connection signal="toggled" from="PauseMenu/MarginContainer/Control/HBoxContainer/VBoxContainer2/ThrowMinigameFastCheckBox" to="." method="_on_throw_minigame_fast_check_box_toggled"]

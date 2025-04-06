@@ -66,19 +66,21 @@ func _on_skill_check_bar_entered_target() -> void:
 		var time_mix: float = minf(1.0, time_passed / time_to_max)
 		if cpu.throw_minigame_get_success(time_mix):
 			var delay: float = cpu.throw_minigame_get_delay(time_mix)
-			print(delay)
 			await get_tree().create_timer(delay).timeout
 			skill_check.press_bar()
 
 func _on_skill_check_target_hit() -> void:
-	power = clampf(power + hit_power_reward, 0.0, 1.0)
+	var scalar: float = 4.0 if Global.throw_minigame_fast else 1.0
+	power = clampf(power + scalar * hit_power_reward, 0.0, 1.0)
 
 func _on_skill_check_target_missed() -> void:
-	power = clampf(power + miss_power_reward, 0.0, 1.0)
+	var scalar: float = 4.0 if Global.throw_minigame_fast else 1.0
+	power = clampf(power + scalar * miss_power_reward, 0.0, 1.0)
 
 func _on_skill_check_target_complete() -> void:
 	skill_checks_complete += 1
-	if skill_checks_complete >= skill_check_count:
+	var scalar: float = 0.25 if Global.throw_minigame_fast else 1.0
+	if skill_checks_complete >= scalar * skill_check_count:
 		Engine.time_scale = 1.0
 		power_result.emit(power)
 
@@ -90,6 +92,7 @@ func _on_input_state_changed(old_state: InputManager.InputState, new_state: Inpu
 		InputManager.InputState.THROW_MINIGAME:
 			show()
 			throw_camera.make_current()
+			Global.environment.terrain_3d.set_camera(throw_camera)
 			throw_minigame_layer.show()
 			process_mode = Node.PROCESS_MODE_PAUSABLE
 		_:

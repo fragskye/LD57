@@ -1,11 +1,21 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dn06mwypi05g0"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://hbxcm3bgse5u"]
 
-[ext_resource type="Texture2D" uid="uid://6koarsvlru0w" path="res://BeachItems/CarBattery/battery_eelbatter.png" id="1_xgcb1"]
+[ext_resource type="Shader" uid="uid://bv5d84n0jxqt3" path="res://shaders/standard.gdshader" id="1_iyreq"]
+[ext_resource type="Texture2D" uid="uid://6koarsvlru0w" path="res://assets/BeachItems/CarBattery/battery_eelbatter.png" id="1_o0nun"]
 
 [resource]
 resource_name = "Material.002"
-cull_mode = 2
-diffuse_mode = 3
-specular_mode = 1
-albedo_texture = ExtResource("1_xgcb1")
-roughness = 0.5
+render_priority = 0
+shader = ExtResource("1_iyreq")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("1_o0nun")
+shader_parameter/albedo_texture_size = Vector2i(1920, 1080)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.5
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)

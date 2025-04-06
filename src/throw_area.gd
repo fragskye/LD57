@@ -4,4 +4,4 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node3D) -> void:
-	InputManager.switch_input_state(InputManager.InputState.THROW_MINIGAME)
+	EventBus.throw_area_entered.emit()

@@ -20,6 +20,8 @@ func _on_input_state_changed(_old_state: InputState, new_state: InputState) -> v
 	match new_state:
 		InputState.THIRD_PERSON:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		InputState.BATTERY_CAMERA:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		_:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 

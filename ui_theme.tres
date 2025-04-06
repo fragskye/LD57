@@ -15,6 +15,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [resource]
+CheckBox/colors/font_color = Color(1, 1, 1, 1)
 MarginContainer/constants/margin_bottom = 32
 MarginContainer/constants/margin_left = 32
 MarginContainer/constants/margin_right = 32

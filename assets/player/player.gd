@@ -46,6 +46,7 @@ func _on_input_state_changed(old_state: InputManager.InputState, new_state: Inpu
 		InputManager.InputState.THIRD_PERSON:
 			show()
 			player_camera.make_current()
+			Global.environment.terrain_3d.set_camera(player_camera)
 			process_mode = Node.PROCESS_MODE_PAUSABLE
 		InputManager.InputState.THROW_MINIGAME:
 			hide()

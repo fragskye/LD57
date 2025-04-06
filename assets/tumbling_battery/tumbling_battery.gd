@@ -5,24 +5,67 @@ extends Node3D
 @onready var camera_follow : CameraFollowPoint3D = $CameraFollowPoint
 
 @export var camera : Camera3D
+@export var still_time_timeout: float = 1.0
+
+@export var power: float = 0.0
+
+var cpu: CPUData = null
+
+var active_battery : RigidBody3D = null
+var still_time: float = 0.0
+
+var _input_state_changed_this_frame: bool = false
 
 signal score_result(score: int)
 
 func _ready() -> void:
 	# TODO: Pull force from throwing minigame
 	InputManager.input_state_changed.connect(_on_input_state_changed)
+	EventBus.player_turn_started.connect(_on_player_turn_started)
+
+func reset() -> void:
+	active_battery = null
+	still_time = 0.0
+	if cpu != null:
+		Engine.time_scale = 3.0
 
 func _spawn_car_battery() -> void:
-	var battery : RigidBody3D = car_battery.instantiate()
-	add_child(battery)
-	battery.position = Vector3.ZERO
-	battery.apply_impulse(Vector3(0, 0, -250))
-	camera_follow.rigidbody = battery
+	active_battery = car_battery.instantiate()
+	add_child(active_battery)
+	camera_follow.rigidbody = active_battery
+	active_battery.position = Vector3.ZERO
+	# Jolt Physics complains if you apply an impulse before the node has been fully added to the scene tree
+	await get_tree().process_frame
+	active_battery.get_global_transform_interpolated()
+	active_battery.reset_physics_interpolation()
+	active_battery.linear_velocity = power * Vector3(0, 10, -250)
+	active_battery.angular_velocity = Vector3(randf_range(-45.0, 45.0), randf_range(-45.0, 45.0), randf_range(-45.0, 45.0))
 	
-	# TODO: Wait until after its finished
+	while still_time < still_time_timeout:
+		await get_tree().physics_frame
+	
+	Engine.time_scale = 1.0
 	score_result.emit(100)
 
+func _process(delta: float) -> void:
+	if InputManager.get_input_state() != InputManager.InputState.BATTERY_CAMERA:
+		return
+	
+	if !_input_state_changed_this_frame && Input.is_action_just_pressed("pause"):
+		InputManager.push_input_state(InputManager.InputState.MENU)
+	
+	_input_state_changed_this_frame = false
+
+func _physics_process(delta: float) -> void:
+	if active_battery != null:
+		if active_battery.linear_velocity.length() < 0.5:
+			still_time += delta
+		else:
+			still_time = 0
+
 func _on_input_state_changed(old_state: InputManager.InputState, new_state: InputManager.InputState) -> void:
+	_input_state_changed_this_frame = true
+	
 	if old_state == InputManager.InputState.MENU || new_state == InputManager.InputState.MENU:
 		return
 	
@@ -30,8 +73,12 @@ func _on_input_state_changed(old_state: InputManager.InputState, new_state: Inpu
 		InputManager.InputState.BATTERY_CAMERA:
 			show()
 			camera.make_current()
+			Global.environment.terrain_3d.set_camera(camera)
 			_spawn_car_battery()
 			process_mode = Node.PROCESS_MODE_PAUSABLE
 		_:
 			hide()
 			process_mode = Node.PROCESS_MODE_DISABLED
+
+func _on_player_turn_started(player_data: PlayerData) -> void:
+	cpu = player_data.cpu

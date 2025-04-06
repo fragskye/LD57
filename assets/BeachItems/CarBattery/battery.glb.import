@@ -32,6 +32,29 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"BlackPlastic": {
+"use_external/enabled": true,
+"use_external/path": "uid://bdgwdrg0di5kl"
+},
+"MetalBattery": {
+"use_external/enabled": true,
+"use_external/path": "uid://c0qt71ckmq720"
+},
+"Sticker": {
+"use_external/enabled": true,
+"use_external/path": "uid://hbxcm3bgse5u"
+}
+},
+"nodes": {
+"PATH:CarBattery": {
+"generate/physics": true,
+"physics/body_type": 1,
+"physics/layer": 4,
+"physics/physics_material_override": Resource("res://assets/BeachItems/CarBattery/battery_physics_material.tres")
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

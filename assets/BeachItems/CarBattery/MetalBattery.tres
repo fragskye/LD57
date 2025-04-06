@@ -1,10 +1,19 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://bda35huma5l6f"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c0qt71ckmq720"]
+
+[ext_resource type="Shader" uid="uid://bv5d84n0jxqt3" path="res://shaders/standard.gdshader" id="1_msnw0"]
 
 [resource]
 resource_name = "Material.001"
-cull_mode = 2
-diffuse_mode = 3
-specular_mode = 1
-albedo_color = Color(0.696191, 0.696191, 0.696191, 1)
-metallic = 1.0
-roughness = 0.5
+render_priority = 0
+shader = ExtResource("1_msnw0")
+shader_parameter/albedo = Color(0.696191, 0.696191, 0.696191, 1)
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.5
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
