@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dhhmkwmxh0jvi"]
+
+[ext_resource type="Texture2D" uid="uid://dkolsamy0s70e" path="res://UnderwaterItems/Algae/seaweed_Cylinder Base Color.png" id="1_itagn"]
+
+[resource]
+resource_name = "Stalk"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_itagn")
+roughness = 0.5

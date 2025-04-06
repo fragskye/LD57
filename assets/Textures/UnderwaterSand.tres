@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://bsnov3piuaoid"]
+
+[ext_resource type="Texture2D" uid="uid://c1shcglfv2f0t" path="res://SandDiffuse.jpg" id="1_jmlxv"]
+[ext_resource type="Texture2D" uid="uid://dbt5xu08gvet0" path="res://SandHeight.jpg" id="2_lrubc"]
+[ext_resource type="Texture2D" uid="uid://ci8fmxfv4eyuo" path="res://SandNormal.jpg" id="3_co6hw"]
+[ext_resource type="Texture2D" uid="uid://dk06ks116tjk3" path="res://SandSmoothness.jpg" id="4_or8wn"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_jmlxv")
+roughness = 0.55
+roughness_texture = ExtResource("4_or8wn")
+normal_enabled = true
+normal_texture = ExtResource("3_co6hw")
+heightmap_scale = -16.0
+heightmap_texture = ExtResource("2_lrubc")
