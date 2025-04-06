@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b15tlakq3bnb7"]
+[gd_scene load_steps=9 format=3 uid="uid://b15tlakq3bnb7"]
 
 [ext_resource type="Script" uid="uid://56edevjlqb0g" path="res://src/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dewdjf5vhfomt" path="res://environment.tscn" id="1_ig7tw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dxuwdsws842ts" path="res://prefabs/ui/pause/pause_layer.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dwdgeanw1kj7s" path="res://assets/throw_minigame/throw_minigame.tscn" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://ctjui5q1gi6ph" path="res://src/throw_area.gd" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://dkpdp6i0g56ji" path="res://assets/tumbling_battery/tumbling_battery.tscn" id="7_5vw27"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
 size = Vector3(20, 20, 20)
@@ -33,7 +34,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -997, 105, 946)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("6_7mycd")
-metadata/_custom_type_script = "uid://ctjui5q1gi6ph"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ThrowArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
@@ -46,5 +46,8 @@ cast_shadow = 0
 size = Vector3(20, 20, 20)
 
 [node name="PauseLayer" parent="." instance=ExtResource("3_h2yge")]
+
+[node name="TumblingBattery" parent="." instance=ExtResource("7_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -98.4718, 0)
 
 [connection signal="power_result" from="ThrowMinigame" to="." method="_on_throw_minigame_power_result"]

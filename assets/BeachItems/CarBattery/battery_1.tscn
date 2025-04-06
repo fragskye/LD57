@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://yi35y4755qhp"]
+[gd_scene load_steps=11 format=4 uid="uid://yi35y4755qhp"]
 
-[ext_resource type="Material" uid="uid://cyi2c8t327a7c" path="res://BeachItems/CarBattery/BlackPlastic.tres" id="1_jpq6p"]
-[ext_resource type="Material" uid="uid://bda35huma5l6f" path="res://BeachItems/CarBattery/MetalBattery.tres" id="2_ewy8h"]
-[ext_resource type="Material" uid="uid://dn06mwypi05g0" path="res://BeachItems/CarBattery/Sticker1.tres" id="3_fircx"]
+[ext_resource type="Material" uid="uid://cyi2c8t327a7c" path="res://assets/BeachItems/CarBattery/BlackPlastic.tres" id="1_jpq6p"]
+[ext_resource type="Material" uid="uid://bda35huma5l6f" path="res://assets/BeachItems/CarBattery/MetalBattery.tres" id="2_ewy8h"]
+[ext_resource type="Material" uid="uid://dn06mwypi05g0" path="res://assets/BeachItems/CarBattery/Sticker1.tres" id="3_fircx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o317m"]
 resource_name = "Material"
@@ -18,7 +18,6 @@ metallic = 1.0
 roughness = 0.5
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q8lh2"]
-load_path = "res://.godot/imported/battery_eelbatter.png-a69b4be468ff09375fda7005f0b22d3b.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tg8f6"]
 resource_name = "Material.002"
@@ -106,7 +105,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jd80q")
 
-[node name="Battery1" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ilfp4"]
+size = Vector3(2.1604, 3.17621, 3.47369)
+
+[node name="CarBattery" type="RigidBody3D"]
 
 [node name="Batter1Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0406, 0)
@@ -115,3 +117,7 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_jpq6p")
 surface_material_override/1 = ExtResource("2_ewy8h")
 surface_material_override/2 = ExtResource("3_fircx")
+
+[node name="TEMP Collision Mesh" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00201416, 1.62222, -0.00222778)
+shape = SubResource("BoxShape3D_ilfp4")

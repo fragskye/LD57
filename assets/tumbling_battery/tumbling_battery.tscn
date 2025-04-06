@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkpdp6i0g56ji"]
+
+[ext_resource type="Script" uid="uid://fm70cpajxi52" path="res://assets/tumbling_battery/camera_follow_point.gd" id="1_ak1jv"]
+[ext_resource type="Script" uid="uid://bmqyf81l0ols8" path="res://assets/tumbling_battery/tumbling_battery.gd" id="1_rjiij"]
+[ext_resource type="Script" uid="uid://bnvddg64wt3s1" path="res://assets/player/player_camera_rig.gd" id="3_o4c40"]
+
+[node name="TumblingBattery" type="Node3D" node_paths=PackedStringArray("camera")]
+script = ExtResource("1_rjiij")
+camera = NodePath("CameraFollowPoint/CameraRig/Camera")
+metadata/_custom_type_script = "uid://bmqyf81l0ols8"
+
+[node name="CameraFollowPoint" type="Node3D" parent="." node_paths=PackedStringArray("rigidbody")]
+physics_interpolation_mode = 1
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_ak1jv")
+rigidbody = NodePath("")
+predictionAmount = 5.0
+metadata/_custom_type_script = "uid://fm70cpajxi52"
+
+[node name="CameraRig" type="Node3D" parent="CameraFollowPoint"]
+physics_interpolation_mode = 1
+script = ExtResource("3_o4c40")
+camera_min_distance = 5.0
+camera_max_distance = 15.0
+metadata/_custom_type_script = "uid://bnvddg64wt3s1"
+
+[node name="Camera" type="Camera3D" parent="CameraFollowPoint/CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+current = true

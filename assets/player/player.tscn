@@ -31,7 +31,7 @@ camera_soft_margin = 0.1
 camera_collision_mask = 1
 camera_collision_shape = SubResource("SphereShape3D_h6syq")
 
-[node name="PlayerCamera" type="Camera3D" parent="PlayerCameraRig"]
+[node name="Camera" type="Camera3D" parent="PlayerCameraRig"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 far = 800.0

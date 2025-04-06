@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody3D
 
-@onready var player_camera: Camera3D = %PlayerCamera
+@onready var player_camera: Camera3D = %Camera
 @onready var camera_rig: PlayerCameraRig = %PlayerCameraRig
 
 @export var move_speed: float = 5.0
