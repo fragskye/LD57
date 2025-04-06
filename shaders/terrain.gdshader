@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx,skip_vertex_transform;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_toon,specular_toon,skip_vertex_transform;
 
 /* The terrain depends on this shader to function. Don't change most things in vertex() or
  * terrain normal calculations in fragment(). You probably only want to customize the

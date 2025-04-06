@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://hui73j7aee0d"
-path.s3tc="res://.godot/imported/PalmTree_Cylinder Base Color.png-958de39da5461d07b1a36d8128c22e93.s3tc.ctex"
+path.s3tc="res://.godot/imported/PalmTree_Cylinder Base Color.png-735a666d307fb39a485bfc8b48478740.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://BeachItems/PalmTree/PalmTree_Cylinder Base Color.png"
-dest_files=["res://.godot/imported/PalmTree_Cylinder Base Color.png-958de39da5461d07b1a36d8128c22e93.s3tc.ctex"]
+source_file="res://assets/BeachItems/PalmTree/PalmTree_Cylinder Base Color.png"
+dest_files=["res://.godot/imported/PalmTree_Cylinder Base Color.png-735a666d307fb39a485bfc8b48478740.s3tc.ctex"]
 
 [params]
 

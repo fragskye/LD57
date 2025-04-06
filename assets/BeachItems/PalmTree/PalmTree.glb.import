@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dl7tdbcskhpwu"
-path="res://.godot/imported/PalmTree.glb-de6b59c3e218396652269adea5d51d52.scn"
+path="res://.godot/imported/PalmTree.glb-426c7a0bee65b3473f9a642bb318ce3e.scn"
 
 [deps]
 
-source_file="res://BeachItems/PalmTree/PalmTree.glb"
-dest_files=["res://.godot/imported/PalmTree.glb-de6b59c3e218396652269adea5d51d52.scn"]
+source_file="res://assets/BeachItems/PalmTree/PalmTree.glb"
+dest_files=["res://.godot/imported/PalmTree.glb-426c7a0bee65b3473f9a642bb318ce3e.scn"]
 
 [params]
 
@@ -33,6 +33,20 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
+"materials": {
+"Material.001": {
+"use_external/enabled": true,
+"use_external/path": "uid://cprwpchs6e3nr"
+},
+"Material.002": {
+"use_external/enabled": true,
+"use_external/path": "uid://brq8e3xt5t0pr"
+},
+"Material.003": {
+"use_external/enabled": true,
+"use_external/path": "uid://cf1l3yr3pc3lg"
+}
+},
 "nodes": {
 "PATH:Plane": {
 "generate/physics": true,

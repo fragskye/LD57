@@ -1,13 +1,14 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dpf8pi1angkm8"]
-
-[sub_resource type="Shader" id="Shader_1sior"]
-code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's StandardMaterial3D.
+// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's StandardMaterial3D.
 
 shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_toon, specular_toon;
 
+#include "shared_global_uniforms.gdshaderinc"
+#include "volumetric_fog.gdshaderinc"
+
 uniform vec4 albedo : source_color;
 uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform float alpha_scissor_threshold : hint_range(0.0, 1.0, 0.001);
 uniform ivec2 albedo_texture_size;
 uniform float point_size : hint_range(0.1, 128.0, 0.1);
 
@@ -24,8 +25,11 @@ uniform vec3 uv1_offset;
 uniform vec3 uv2_scale;
 uniform vec3 uv2_offset;
 
+varying vec3 world_pos;
+
 void vertex() {
 	UV = UV * uv1_scale.xy + uv1_offset.xy;
+	world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 }
 
 void fragment() {
@@ -41,21 +45,9 @@ void fragment() {
 	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
 	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
 	ROUGHNESS = roughness_tex * roughness;
+	ALPHA *= albedo.a * albedo_tex.a;
+	ALPHA_SCISSOR_THRESHOLD = alpha_scissor_threshold;
+	
+	float ray_offset = texture(value_noise_texture, SCREEN_UV).w;
+	FOG = volumetric_fog(world_pos, CAMERA_POSITION_WORLD, ray_offset);
 }
-"
-
-[resource]
-resource_name = "Material.001"
-render_priority = 0
-shader = SubResource("Shader_1sior")
-shader_parameter/albedo = Color(0.506318, 0.506318, 0.506318, 1)
-shader_parameter/albedo_texture_size = Vector2i(0, 0)
-shader_parameter/point_size = 1.0
-shader_parameter/roughness = 0.95283
-shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
-shader_parameter/specular = 0.5
-shader_parameter/metallic = 0.0
-shader_parameter/uv1_scale = Vector3(1, 1, 1)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(1, 1, 1)
-shader_parameter/uv2_offset = Vector3(0, 0, 0)

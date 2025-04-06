@@ -1,12 +1,22 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bkjtf07dqvwv1"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bkjtf07dqvwv1"]
 
-[ext_resource type="Texture2D" uid="uid://c4vgcrds6uoeg" path="res://UnderwaterItems/Algae/seaweed_Leafs Base Color.png" id="1_q7aao"]
+[ext_resource type="Shader" uid="uid://cvgohgbt0q3rh" path="res://shaders/standard_transparent.gdshader" id="1_lqpdl"]
+[ext_resource type="Texture2D" uid="uid://c4vgcrds6uoeg" path="res://assets/UnderwaterItems/Algae/seaweed_Leafs Base Color.png" id="1_q7aao"]
 
 [resource]
 resource_name = "Leafs"
-transparency = 1
-cull_mode = 2
-diffuse_mode = 3
-specular_mode = 1
-albedo_texture = ExtResource("1_q7aao")
-roughness = 0.5
+render_priority = 0
+shader = ExtResource("1_lqpdl")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("1_q7aao")
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/albedo_texture_size = Vector2i(1024, 1024)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.5
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)

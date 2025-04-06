@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://btfahfwacolp5"
-path="res://.godot/imported/seaweed.glb-e02ec515a688e25be4ad8e5edf372ef3.scn"
+path="res://.godot/imported/seaweed.glb-e590cc3eec30fd3d4ca2b576e1c7b42a.scn"
 
 [deps]
 
-source_file="res://UnderwaterItems/Algae/seaweed.glb"
-dest_files=["res://.godot/imported/seaweed.glb-e02ec515a688e25be4ad8e5edf372ef3.scn"]
+source_file="res://assets/UnderwaterItems/Algae/seaweed.glb"
+dest_files=["res://.godot/imported/seaweed.glb-e590cc3eec30fd3d4ca2b576e1c7b42a.scn"]
 
 [params]
 
@@ -33,6 +33,16 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
+"materials": {
+"Leafs": {
+"use_external/enabled": true,
+"use_external/path": "uid://bkjtf07dqvwv1"
+},
+"Stalk": {
+"use_external/enabled": true,
+"use_external/path": "uid://dhhmkwmxh0jvi"
+}
+},
 "nodes": {
 "PATH:Cylinder": {
 "generate/physics": true,

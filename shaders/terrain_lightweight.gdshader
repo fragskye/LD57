@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx,skip_vertex_transform;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_toon,specular_toon,skip_vertex_transform;
 
 /* This is an example stripped down shader with maximum performance in mind.
  * Only Autoshader/Base/Over/Blend/Holes/Colormap are supported.

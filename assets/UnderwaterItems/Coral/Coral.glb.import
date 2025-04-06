@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://0xh8cdhdkjkq"
-path="res://.godot/imported/Coral.glb-02cf278abe3a6c639c8accd9feeb0b8c.scn"
+path="res://.godot/imported/Coral.glb-9055f71b17103c1db4cbe58364ea6977.scn"
 
 [deps]
 
-source_file="res://UnderwaterItems/Coral/Coral.glb"
-dest_files=["res://.godot/imported/Coral.glb-02cf278abe3a6c639c8accd9feeb0b8c.scn"]
+source_file="res://assets/UnderwaterItems/Coral/Coral.glb"
+dest_files=["res://.godot/imported/Coral.glb-9055f71b17103c1db4cbe58364ea6977.scn"]
 
 [params]
 
@@ -33,6 +33,20 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
+"materials": {
+"Coral": {
+"use_external/enabled": true,
+"use_external/path": "uid://cal5q0y7kx01p"
+},
+"CoralInside": {
+"use_external/enabled": true,
+"use_external/path": "uid://cymtldyq10tum"
+},
+"Rock": {
+"use_external/enabled": true,
+"use_external/path": "uid://dvd2sv0rrneah"
+}
+},
 "nodes": {
 "PATH:Cylinder": {
 "generate/physics": true,

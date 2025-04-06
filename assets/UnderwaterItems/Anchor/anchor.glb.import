@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cxjo6s4qhq82j"
-path="res://.godot/imported/anchor.glb-c68ec15ece423b1acfa12e4f6e0e32a3.scn"
+path="res://.godot/imported/anchor.glb-fa94f5e9ba2e357f5d56519d003cd73d.scn"
 
 [deps]
 
-source_file="res://UnderwaterItems/Anchor/anchor.glb"
-dest_files=["res://.godot/imported/anchor.glb-c68ec15ece423b1acfa12e4f6e0e32a3.scn"]
+source_file="res://assets/UnderwaterItems/Anchor/anchor.glb"
+dest_files=["res://.godot/imported/anchor.glb-fa94f5e9ba2e357f5d56519d003cd73d.scn"]
 
 [params]
 
@@ -33,6 +33,12 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
+"materials": {
+"Material.001": {
+"use_external/enabled": true,
+"use_external/path": "uid://fqvkhng0d171"
+}
+},
 "nodes": {
 "PATH:Circle": {
 "generate/physics": true,

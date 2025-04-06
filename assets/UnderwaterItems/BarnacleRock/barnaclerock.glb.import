@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://h1p1cohb0x3e"
-path="res://.godot/imported/barnaclerock.glb-74315e19451603623ce63d8d7f659799.scn"
+path="res://.godot/imported/barnaclerock.glb-9f63980a12b99971af316866a652b1f4.scn"
 
 [deps]
 
-source_file="res://UnderwaterItems/BarnacleRock/barnaclerock.glb"
-dest_files=["res://.godot/imported/barnaclerock.glb-74315e19451603623ce63d8d7f659799.scn"]
+source_file="res://assets/UnderwaterItems/BarnacleRock/barnaclerock.glb"
+dest_files=["res://.godot/imported/barnaclerock.glb-9f63980a12b99971af316866a652b1f4.scn"]
 
 [params]
 
@@ -33,6 +33,16 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
+"materials": {
+"Barnacle": {
+"use_external/enabled": true,
+"use_external/path": "uid://biy0oqgheai66"
+},
+"Material.001": {
+"use_external/enabled": true,
+"use_external/path": "uid://dpf8pi1angkm8"
+}
+},
 "nodes": {
 "PATH:Sphere_005": {
 "generate/physics": true,
