@@ -16,7 +16,7 @@ miss_power_reward = -0.05
 skill_check_count = 40
 time_to_max = 20.0
 difficulties = Array[ExtResource("2_htcwl")]([ExtResource("3_ariq8"), ExtResource("4_x6o8v"), ExtResource("3_dji5i"), ExtResource("6_u1i87")])
-npc_difficulty_index = 2
+cpu_difficulty_index = 2
 
 [node name="ThrowCamera" type="Camera3D" parent="."]
 unique_name_in_owner = true
@@ -72,6 +72,7 @@ grow_vertical = 0
 value = 50.0
 show_percentage = false
 
+[connection signal="bar_entered_target" from="ThrowMinigameLayer/ThrowMinigameMenu/MarginContainer/Control/SkillCheck" to="." method="_on_skill_check_bar_entered_target"]
 [connection signal="target_complete" from="ThrowMinigameLayer/ThrowMinigameMenu/MarginContainer/Control/SkillCheck" to="." method="_on_skill_check_target_complete"]
 [connection signal="target_hit" from="ThrowMinigameLayer/ThrowMinigameMenu/MarginContainer/Control/SkillCheck" to="." method="_on_skill_check_target_hit"]
 [connection signal="target_missed" from="ThrowMinigameLayer/ThrowMinigameMenu/MarginContainer/Control/SkillCheck" to="." method="_on_skill_check_target_missed"]

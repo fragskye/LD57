@@ -1,11 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://b15tlakq3bnb7"]
+[gd_scene load_steps=13 format=3 uid="uid://b15tlakq3bnb7"]
 
 [ext_resource type="Script" uid="uid://56edevjlqb0g" path="res://src/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dewdjf5vhfomt" path="res://environment.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dmtg5nl51aom8" path="res://assets/player/player.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://b7w5fciwe16m0" path="res://src/cpu_data.gd" id="2_4c57u"]
+[ext_resource type="Resource" uid="uid://bxrx0oca5pbc" path="res://data/cpus/alpha.tres" id="3_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dxuwdsws842ts" path="res://prefabs/ui/pause/pause_layer.tscn" id="3_h2yge"]
+[ext_resource type="Resource" uid="uid://tkll4nn0nyov" path="res://data/cpus/bravo.tres" id="4_dg77c"]
 [ext_resource type="PackedScene" uid="uid://dwdgeanw1kj7s" path="res://assets/throw_minigame/throw_minigame.tscn" id="5_lquwl"]
+[ext_resource type="Resource" uid="uid://br6jk1bntdsh1" path="res://data/cpus/charlie.tres" id="5_ycdy4"]
 [ext_resource type="Script" uid="uid://ctjui5q1gi6ph" path="res://src/throw_area.gd" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bd3husuqtgvie" path="res://prefabs/ui/hud/hud_layer.tscn" id="10_efxa6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
 size = Vector3(20, 20, 20)
@@ -14,6 +19,8 @@ size = Vector3(20, 20, 20)
 process_mode = 3
 physics_interpolation_mode = 1
 script = ExtResource("1_1bvp3")
+cpu_count = 3
+cpu_list = Array[ExtResource("2_4c57u")]([ExtResource("3_efxa6"), ExtResource("4_dg77c"), ExtResource("5_ycdy4")])
 
 [node name="Environment" parent="." instance=ExtResource("1_ig7tw")]
 
@@ -44,6 +51,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 transparency = 0.7
 cast_shadow = 0
 size = Vector3(20, 20, 20)
+
+[node name="HUDLayer" parent="." instance=ExtResource("10_efxa6")]
 
 [node name="PauseLayer" parent="." instance=ExtResource("3_h2yge")]
 

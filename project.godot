@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 InputManager="*res://src/singleton/input_manager.gd"
+Global="*res://src/singleton/global.gd"
+EventBus="*res://src/singleton/event_bus.gd"
 
 [debug]
 

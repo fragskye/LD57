@@ -5,6 +5,8 @@ signal target_missed
 signal target_complete
 signal bar_entered_target
 
+const EXTRA_CHECK: float = 30.0
+
 @export var circle_color: Color = Color.WHITE
 @export var target_color: Color = Color.WHITE
 @export var target_disabled_color: Color = Color.WHITE
@@ -29,19 +31,22 @@ var can_miss_early: bool = true
 var _last_bar_over_target: bool = false
 
 func _ready() -> void:
+	reset()
+
+func reset() -> void:
 	bar_angle = 0.0
 	randomize_target()
 
 func _process(delta: float) -> void:
 	bar_angle = wrapf(bar_angle + bar_spin_speed * delta, 0.0, 360.0)
-	var missed_main: bool = bar_angle > target_angle + target_arc_length && bar_angle <= target_angle + target_arc_length + 5.0
-	var missed_wrap: bool = target_angle + target_arc_length + 5.0 > 360.0 && bar_angle > target_angle + target_arc_length - 360.0 && bar_angle <= target_angle + target_arc_length - 360.0 + 5.0
+	var missed_main: bool = bar_angle > target_angle + target_arc_length && bar_angle <= target_angle + target_arc_length + EXTRA_CHECK
+	var missed_wrap: bool = target_angle + target_arc_length + EXTRA_CHECK > 360.0 && bar_angle > target_angle + target_arc_length - 360.0 && bar_angle <= target_angle + target_arc_length - 360.0 + EXTRA_CHECK
 	if missed_main || missed_wrap:
 		if !target_disabled:
 			target_disabled = true
 			target_missed.emit()
-	var complete_main: bool = bar_angle > target_angle + target_arc_length + miss_margin && bar_angle <= target_angle + target_arc_length + miss_margin + 5.0
-	var complete_wrap: bool = target_angle + target_arc_length + miss_margin + 5.0 > 360.0 && bar_angle > target_angle + target_arc_length - 360.0 + miss_margin && bar_angle <= target_angle + target_arc_length - 360.0 + miss_margin + 5.0
+	var complete_main: bool = bar_angle > target_angle + target_arc_length + miss_margin && bar_angle <= target_angle + target_arc_length + miss_margin + EXTRA_CHECK
+	var complete_wrap: bool = target_angle + target_arc_length + miss_margin + EXTRA_CHECK > 360.0 && bar_angle > target_angle + target_arc_length - 360.0 + miss_margin && bar_angle <= target_angle + target_arc_length - 360.0 + miss_margin + EXTRA_CHECK
 	if complete_main || complete_wrap:
 		randomize_target()
 		target_complete.emit()

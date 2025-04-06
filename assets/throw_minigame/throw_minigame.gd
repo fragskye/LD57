@@ -14,29 +14,31 @@ signal power_result(power: float)
 @export var time_to_max: float = 30.0
 
 @export var difficulties: Array[ThrowMinigameDifficulty] = []
-@export var npc_difficulty_index: int = 0
-
-var difficulty_index: int = 0
+@export var cpu_difficulty_index: int = 0
 
 var difficulty: ThrowMinigameDifficulty:
 	get():
-		if npc:
-			return difficulties[npc_difficulty_index]
-		return difficulties[difficulty_index]
+		if cpu != null:
+			return difficulties[cpu_difficulty_index]
+		return difficulties[Global.throw_minigame_difficulty]
 
-var npc: bool = false # TODO: Resource controlling AI parameters instead of bool
+var cpu: CPUData = null
 
 var power: float = 0.0
-
 var skill_checks_complete: int = 0
 var time_passed: float = 0.0
 
 func _ready() -> void:
 	InputManager.input_state_changed.connect(_on_input_state_changed)
+	EventBus.player_turn_started.connect(_on_player_turn_started)
 
 func reset() -> void:
+	power = 0.0
 	skill_checks_complete = 0
 	time_passed = 0.0
+	skill_check.reset()
+	if cpu != null:
+		Engine.time_scale = 3.0
 
 func _process(delta: float) -> void:
 	if InputManager.get_input_state() != InputManager.InputState.THROW_MINIGAME:
@@ -53,11 +55,20 @@ func _process(delta: float) -> void:
 	skill_check.next_target_arc_length = lerpf(difficulty.start_target_arc_length, difficulty.end_target_arc_length, time_mix)
 	skill_check.can_miss_early = difficulty.can_miss_early
 	
-	if !npc:
+	if cpu == null:
 		if Input.is_action_just_pressed("skill_check"):
 			skill_check.press_bar()
 	
 	power_bar.value = power * 100.0
+
+func _on_skill_check_bar_entered_target() -> void:
+	if cpu != null:
+		var time_mix: float = minf(1.0, time_passed / time_to_max)
+		if cpu.throw_minigame_get_success(time_mix):
+			var delay: float = cpu.throw_minigame_get_delay(time_mix)
+			print(delay)
+			await get_tree().create_timer(delay).timeout
+			skill_check.press_bar()
 
 func _on_skill_check_target_hit() -> void:
 	power = clampf(power + hit_power_reward, 0.0, 1.0)
@@ -68,6 +79,7 @@ func _on_skill_check_target_missed() -> void:
 func _on_skill_check_target_complete() -> void:
 	skill_checks_complete += 1
 	if skill_checks_complete >= skill_check_count:
+		Engine.time_scale = 1.0
 		power_result.emit(power)
 
 func _on_input_state_changed(old_state: InputManager.InputState, new_state: InputManager.InputState) -> void:
@@ -84,3 +96,6 @@ func _on_input_state_changed(old_state: InputManager.InputState, new_state: Inpu
 			hide()
 			throw_minigame_layer.hide()
 			process_mode = Node.PROCESS_MODE_DISABLED
+
+func _on_player_turn_started(player_data: PlayerData) -> void:
+	cpu = player_data.cpu

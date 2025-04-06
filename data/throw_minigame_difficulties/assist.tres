@@ -6,9 +6,9 @@
 script = ExtResource("1_el2ss")
 start_speed = 45.0
 end_speed = 45.0
-start_target_angle_offset_range = Vector2(45, 45)
-end_target_angle_offset_range = Vector2(45, 45)
-start_target_arc_length = 75.0
-end_target_arc_length = 75.0
+start_target_angle_offset_range = Vector2(30, 30)
+end_target_angle_offset_range = Vector2(30, 30)
+start_target_arc_length = 90.0
+end_target_arc_length = 90.0
 can_miss_early = false
 metadata/_custom_type_script = "uid://btxr7xuethjml"

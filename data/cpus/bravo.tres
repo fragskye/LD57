@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CPUData" load_steps=2 format=3 uid="uid://tkll4nn0nyov"]
+
+[ext_resource type="Script" uid="uid://b7w5fciwe16m0" path="res://src/cpu_data.gd" id="1_6v6rd"]
+
+[resource]
+script = ExtResource("1_6v6rd")
+throw_minigame_start_success_odds = 0.9
+throw_minigame_end_success_odds = 0.9
+throw_minigame_start_delay_range = Vector2(0.05, 0.1)
+throw_minigame_end_delay_range = Vector2(0.075, 0.15)
+metadata/_custom_type_script = "uid://b7w5fciwe16m0"
