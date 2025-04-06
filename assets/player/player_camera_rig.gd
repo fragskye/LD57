@@ -1,6 +1,6 @@
 class_name PlayerCameraRig extends Node3D
 
-@onready var camera: Camera3D = %PlayerCamera
+@onready var camera: Camera3D = %Camera
 
 @export var look_sensitivity: float = 1.0
 @export var camera_min_distance: float = 0.5
@@ -23,6 +23,9 @@ func _ready() -> void:
 	camera_distance = camera_max_distance
 
 func _process(delta: float) -> void:
+	if (!is_instance_valid(camera)):
+		return
+	
 	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	var query: PhysicsShapeQueryParameters3D = PhysicsShapeQueryParameters3D.new()
 	query.shape = camera_collision_shape
@@ -31,6 +34,7 @@ func _process(delta: float) -> void:
 	query.motion = global_basis * Vector3(0.0, 0.0, motion_max_distance)
 	query.collision_mask = camera_collision_mask
 	var result: PackedFloat32Array = space_state.cast_motion(query)
+	
 	var ray_distance: float = result[0] * motion_max_distance - camera_hard_margin
 	if ray_distance < camera_distance:
 		camera_distance = maxf(camera_min_distance, ray_distance)
@@ -41,7 +45,8 @@ func _process(delta: float) -> void:
 	camera.position.z = camera_distance
 
 func _unhandled_input(event: InputEvent) -> void:
-	if InputManager.get_input_state() != InputManager.InputState.THIRD_PERSON:
+	var input_state : InputManager.InputState = InputManager.get_input_state()
+	if input_state != InputManager.InputState.THIRD_PERSON && input_state != InputManager.InputState.BATTERY_CAMERA:
 		return
 	
 	if event is InputEventMouseMotion:
