@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cal5q0y7kx01p"]
+
+[resource]
+resource_name = "Coral"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.906513, 0.5651, 0.499029, 1)
+roughness = 0.5
