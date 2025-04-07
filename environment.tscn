@@ -1,13 +1,18 @@
-[gd_scene load_steps=20 format=3 uid="uid://dewdjf5vhfomt"]
+[gd_scene load_steps=24 format=3 uid="uid://dewdjf5vhfomt"]
 
 [ext_resource type="Material" uid="uid://yaq2oyu01vsn" path="res://assets/sky.tres" id="1_0dwx2"]
 [ext_resource type="Script" uid="uid://gkx7trnu0yaw" path="res://src/environment.gd" id="1_00014"]
 [ext_resource type="Shader" uid="uid://3cqus7h8uoq6" path="res://shaders/terrain.gdshader" id="3_dm4p5"]
 [ext_resource type="PackedScene" uid="uid://duncyhaso1fl8" path="res://assets/ocean/ocean.tscn" id="3_wetts"]
+[ext_resource type="PackedScene" uid="uid://dlh03lyg72703" path="res://assets/BeachItems/PalmTree/palm_tree.tscn" id="4_2eiut"]
 [ext_resource type="Texture2D" uid="uid://b15e4rs0nwdis" path="res://assets/Textures/sand/packed_albedo_height.png" id="4_dm4p5"]
 [ext_resource type="Texture2D" uid="uid://dsrfcoy2pc0oa" path="res://assets/Textures/sand/packed_normal_roughness.png" id="5_pk5nr"]
 [ext_resource type="Texture2D" uid="uid://x40t24djtuh4" path="res://assets/Textures/beach_sand/packed_albedo_height.png" id="6_poig3"]
 [ext_resource type="Texture2D" uid="uid://1dt583dk42v3" path="res://assets/Textures/beach_sand/packed_normal_roughness.png" id="7_2eiut"]
+[ext_resource type="PackedScene" uid="uid://d0yyapkkt3l03" path="res://assets/BeachItems/Cooler/Cooler.tscn" id="10_oqxhg"]
+[ext_resource type="PackedScene" uid="uid://bv6bpx1oc3al8" path="res://assets/BeachItems/Chair/chair.tscn" id="11_4sbom"]
+[ext_resource type="PackedScene" uid="uid://b1uft6dcgbyvw" path="res://assets/BeachItems/Umbrella/umbrella.tscn" id="12_2bfpd"]
+[ext_resource type="PackedScene" uid="uid://g3nl1s7ycf7k" path="res://assets/BeachItems/Volleyball/Volleyball.tscn" id="13_3jj1w"]
 
 [sub_resource type="Sky" id="Sky_0dwx2"]
 sky_material = ExtResource("1_0dwx2")
@@ -73,23 +78,13 @@ world_background = 0
 shader_override_enabled = true
 shader_override = ExtResource("3_dm4p5")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4tgr"]
-transparency = 4
-cull_mode = 2
-vertex_color_use_as_albedo = true
-backlight_enabled = true
-backlight = Color(0.5, 0.5, 0.5, 1)
-distance_fade_mode = 1
-distance_fade_min_distance = 128.0
-distance_fade_max_distance = 96.0
-
 [sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_dm4p5"]
-generated_type = 1
-height_offset = 0.5
-material_override = SubResource("StandardMaterial3D_g4tgr")
+name = "palm_tree"
+scene_file = ExtResource("4_2eiut")
+density = 0.05
 last_lod = 0
 last_shadow_lod = 0
-lod0_range = 128.0
+lod0_range = 256.0
 
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_pk5nr"]
 name = "environment"
@@ -114,15 +109,17 @@ script = ExtResource("1_00014")
 environment = SubResource("Environment_7b2gm")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.782608, -0.320619, 0.533599, 0, 0.857167, 0.515038, -0.622514, 0.403073, -0.670826, 0, 0, 0)
 light_specular = 5.0
+light_bake_mode = 0
 shadow_enabled = true
+directional_shadow_blend_splits = true
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://data/terrain"
 material = SubResource("Terrain3DMaterial_00014")
 assets = SubResource("Terrain3DAssets_pk5nr")
-collision_mode = 3
+collision_mode = 2
 collision_shape_size = 8
 unique_name_in_owner = true
 top_level = true
@@ -135,6 +132,45 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1024, 100, 1024)
 [node name="Ocean" parent="Beach" instance=ExtResource("3_wetts")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -128)
+
+[node name="Cooler" parent="Beach" instance=ExtResource("10_oqxhg")]
+transform = Transform3D(0.999124, -0.0418317, 0.000819239, 0.041274, 0.988634, 0.144565, -0.00685733, -0.144405, 0.989495, 4.78387, 4.22131, -86.5317)
+
+[node name="Cooler2" parent="Beach" instance=ExtResource("10_oqxhg")]
+transform = Transform3D(-0.442233, -0.0509332, 0.895453, -0.197973, 0.979304, -0.0420694, -0.874778, -0.19588, -0.443164, 9.22528, 3.09461, -94.2826)
+
+[node name="Chair" parent="Beach" instance=ExtResource("11_4sbom")]
+transform = Transform3D(0.999161, -0.0409594, 0.000671342, 0.0405339, 0.990885, 0.128464, -0.00592701, -0.128329, 0.991714, 5.29938, 4.46786, -84.9333)
+
+[node name="Chair2" parent="Beach" instance=ExtResource("11_4sbom")]
+transform = Transform3D(0.557096, -0.0384785, 0.829556, -0.0810751, 0.991634, 0.100443, -0.826481, -0.123213, 0.549316, 5.62543, 4.70464, -83.185)
+
+[node name="Chair3" parent="Beach" instance=ExtResource("11_4sbom")]
+transform = Transform3D(-0.0682068, -0.0475079, 0.996539, -0.18735, 0.981705, 0.0339778, -0.979922, -0.184384, -0.0758595, 6.534, 3.28826, -92.567)
+
+[node name="Chair4" parent="Beach" instance=ExtResource("11_4sbom")]
+transform = Transform3D(-0.397755, -0.0511357, 0.916065, -0.193665, 0.980629, -0.0293495, -0.896819, -0.189084, -0.399953, 8.27673, 3.23749, -93.295)
+
+[node name="Chair5" parent="Beach" instance=ExtResource("11_4sbom")]
+transform = Transform3D(-0.183845, -0.042859, 0.98202, -0.217194, 0.976127, 0.0019407, -0.958659, -0.212932, -0.188765, 22.1305, 3.01743, -97.9841)
+
+[node name="Chair6" parent="Beach" instance=ExtResource("11_4sbom")]
+transform = Transform3D(-0.361964, -0.0345274, 0.931552, -0.217258, 0.974919, -0.0482832, -0.906521, -0.219864, -0.360387, 24.0494, 2.94193, -98.6653)
+
+[node name="Chair7" parent="Beach" instance=ExtResource("11_4sbom")]
+transform = Transform3D(0.0236791, -0.0258484, 0.999385, -0.220268, 0.974964, 0.0304357, -0.975152, -0.220853, 0.0173928, 26.712, 2.96951, -98.9129)
+
+[node name="Umbrella" parent="Beach" instance=ExtResource("12_2bfpd")]
+transform = Transform3D(0.999219, -0.0394378, -0.00225716, 0.0394153, 0.991597, 0.123215, -0.00262115, -0.123208, 0.992377, 4.7146, 4.57158, -83.9692)
+
+[node name="Umbrella2" parent="Beach" instance=ExtResource("12_2bfpd")]
+transform = Transform3D(0.998749, -0.0497962, -0.00450406, 0.049781, 0.98193, 0.18258, -0.00466913, -0.182576, 0.983181, 7.33502, 3.25147, -92.9731)
+
+[node name="Volleyball" parent="Beach" instance=ExtResource("13_3jj1w")]
+transform = Transform3D(0.892875, -0.0213133, -0.4498, 0.11796, 0.975069, 0.187953, 0.43458, -0.220877, 0.873129, 27.6489, 3.02625, -98.7588)
+
+[node name="Volleyball2" parent="Beach" instance=ExtResource("13_3jj1w")]
+transform = Transform3D(0.976921, -0.0445934, -0.208893, 0.0745424, 0.987655, 0.13777, 0.200171, -0.150162, 0.968185, 6.32336, 4.07017, -87.9727)
 
 [node name="Underwater" type="Node3D" parent="."]
 unique_name_in_owner = true

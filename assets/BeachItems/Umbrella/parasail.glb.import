@@ -32,6 +32,55 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"Blue": {
+"use_external/enabled": true,
+"use_external/path": "uid://brk7dewybavr3"
+},
+"Cyan": {
+"use_external/enabled": true,
+"use_external/path": "uid://h7gspjpfo4wt"
+},
+"Green": {
+"use_external/enabled": true,
+"use_external/path": "uid://7g03qommrrux"
+},
+"Magenta": {
+"use_external/enabled": true,
+"use_external/path": "uid://cmwhfxcco6fxx"
+},
+"Orange": {
+"use_external/enabled": true,
+"use_external/path": "uid://cxg6ml8fu0f7w"
+},
+"Pole": {
+"use_external/enabled": true,
+"use_external/path": "uid://blwidffjdut3y"
+},
+"Purple": {
+"use_external/enabled": true,
+"use_external/path": "uid://dwgx1t6dmbtun"
+},
+"Red": {
+"use_external/enabled": true,
+"use_external/path": "uid://q10yq8akrgx3"
+},
+"Tip": {
+"use_external/enabled": true,
+"use_external/path": "uid://b4w8r6k4xgwx6"
+},
+"Yellow": {
+"use_external/enabled": true,
+"use_external/path": "uid://cdv7mg5uegry3"
+}
+},
+"nodes": {
+"PATH:Umbrella": {
+"generate/physics": true,
+"physics/shape_type": 0
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

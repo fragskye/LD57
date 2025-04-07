@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dl7tdbcskhpwu" path="res://assets/BeachItems/PalmTree/PalmTree.glb" id="1_eb3ew"]
 
 [node name="PalmTree" instance=ExtResource("1_eb3ew")]
+
+[node name="Plane" parent="." index="0"]
+transform = Transform3D(0.534402, 0.272789, 0, -0.272789, 0.534402, 0, 0, 0, 0.6, 0, 0, 0)

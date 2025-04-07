@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b15tlakq3bnb7"]
+[gd_scene load_steps=15 format=3 uid="uid://b15tlakq3bnb7"]
 
 [ext_resource type="Script" uid="uid://56edevjlqb0g" path="res://src/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dewdjf5vhfomt" path="res://environment.tscn" id="1_ig7tw"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://ctjui5q1gi6ph" path="res://src/throw_area.gd" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dkpdp6i0g56ji" path="res://assets/tumbling_battery/tumbling_battery.tscn" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bd3husuqtgvie" path="res://prefabs/ui/hud/hud_layer.tscn" id="10_efxa6"]
+[ext_resource type="PackedScene" uid="uid://dlh03lyg72703" path="res://assets/BeachItems/PalmTree/palm_tree.tscn" id="13_ycdy4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
 size = Vector3(20, 20, 20)
@@ -56,6 +57,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -94.0276, 0)
 [node name="HUDLayer" parent="." instance=ExtResource("10_efxa6")]
 
 [node name="PauseLayer" parent="." instance=ExtResource("3_h2yge")]
+
+[node name="PalmTree" parent="." instance=ExtResource("13_ycdy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1017.18, 105.285, 946.182)
 
 [connection signal="power_result" from="ThrowMinigame" to="." method="_on_throw_minigame_power_result"]
 [connection signal="score_result" from="TumblingBattery" to="." method="_on_tumbling_battery_score_result"]

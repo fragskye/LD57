@@ -7,3 +7,5 @@ diffuse_mode = 3
 specular_mode = 1
 albedo_color = Color(0.00391815, 0.313726, 0.592157, 1)
 roughness = 0.5
+backlight_enabled = true
+backlight = Color(0.752941, 0.752941, 0.752941, 1)

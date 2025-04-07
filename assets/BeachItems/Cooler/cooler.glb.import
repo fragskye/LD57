@@ -32,6 +32,23 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"CoolerBlue": {
+"use_external/enabled": true,
+"use_external/path": "uid://dgldyykew4vmq"
+},
+"Lid": {
+"use_external/enabled": true,
+"use_external/path": "uid://d18a70tnkbu5t"
+}
+},
+"nodes": {
+"PATH:Cooler": {
+"generate/physics": true,
+"physics/shape_type": 0
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
