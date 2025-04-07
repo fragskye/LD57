@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d3tegynnpyj5k"
+path="res://.godot/imported/audience_cheers_13 edit.wav-a5110e9778c0b34ce7c7481022df7135.sample"
+
+[deps]
+
+source_file="res://assets/throw_minigame/audience_cheers_13 edit.wav"
+dest_files=["res://.godot/imported/audience_cheers_13 edit.wav-a5110e9778c0b34ce7c7481022df7135.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

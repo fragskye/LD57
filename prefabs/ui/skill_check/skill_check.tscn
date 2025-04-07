@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dof5or2ve224o"]
+[gd_scene load_steps=4 format=3 uid="uid://dof5or2ve224o"]
 
 [ext_resource type="Script" uid="uid://df8nbnij04gio" path="res://prefabs/ui/skill_check/skill_check.gd" id="1_hgxw1"]
+[ext_resource type="AudioStream" uid="uid://drs5vflcvxt16" path="res://assets/throw_minigame/UI Knife Button edit.wav" id="2_5kqyj"]
+[ext_resource type="AudioStream" uid="uid://ca0r8vux6jthg" path="res://assets/throw_minigame/Sweet Back A edit.wav" id="3_5kqyj"]
 
 [node name="SkillCheck" type="Control"]
 layout_mode = 3
@@ -16,3 +18,15 @@ bar_length = 96.0
 bar_width = 4.0
 bar_spin_speed = 90.0
 target_arc_length = 30.0
+
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(176, -41)
+stream = ExtResource("2_5kqyj")
+volume_db = -5.0
+
+[node name="MissSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(176, -41)
+stream = ExtResource("3_5kqyj")
+volume_db = -3.0

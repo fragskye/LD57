@@ -7,6 +7,9 @@ signal bar_entered_target
 
 const EXTRA_CHECK: float = 30.0
 
+@onready var hit_sfx: AudioStreamPlayer2D = %HitSFX
+@onready var miss_sfx: AudioStreamPlayer2D = %MissSFX
+
 @export var circle_color: Color = Color.WHITE
 @export var target_color: Color = Color.WHITE
 @export var target_disabled_color: Color = Color.WHITE
@@ -18,7 +21,7 @@ const EXTRA_CHECK: float = 30.0
 @export var bar_width: float = 8.0
 
 @export var bar_spin_speed: float = 0.0
-var bar_angle: float = 0.0
+var bar_angle: float = 270.0
 var target_angle: float = 0.0
 @export var target_arc_length: float = 0.0
 var target_disabled: bool = false
@@ -34,10 +37,12 @@ func _ready() -> void:
 	reset()
 
 func reset() -> void:
-	bar_angle = 0.0
+	bar_angle = 270.0
 	randomize_target()
 
 func _process(delta: float) -> void:
+	if !is_visible_in_tree():
+		return
 	bar_angle = wrapf(bar_angle + bar_spin_speed * delta, 0.0, 360.0)
 	var missed_main: bool = bar_angle > target_angle + target_arc_length && bar_angle <= target_angle + target_arc_length + EXTRA_CHECK
 	var missed_wrap: bool = target_angle + target_arc_length + EXTRA_CHECK > 360.0 && bar_angle > target_angle + target_arc_length - 360.0 && bar_angle <= target_angle + target_arc_length - 360.0 + EXTRA_CHECK
@@ -45,6 +50,7 @@ func _process(delta: float) -> void:
 		if !target_disabled:
 			target_disabled = true
 			target_missed.emit()
+			miss_sfx.play()
 	var complete_main: bool = bar_angle > target_angle + target_arc_length + miss_margin && bar_angle <= target_angle + target_arc_length + miss_margin + EXTRA_CHECK
 	var complete_wrap: bool = target_angle + target_arc_length + miss_margin + EXTRA_CHECK > 360.0 && bar_angle > target_angle + target_arc_length - 360.0 + miss_margin && bar_angle <= target_angle + target_arc_length - 360.0 + miss_margin + EXTRA_CHECK
 	if complete_main || complete_wrap:
@@ -75,9 +81,11 @@ func press_bar() -> void:
 		randomize_target()
 		target_hit.emit()
 		target_complete.emit()
+		hit_sfx.play()
 	elif can_miss_early:
 		target_disabled = true
 		target_missed.emit()
+		miss_sfx.play()
 
 func is_bar_over_target() -> bool:
 	var hit_main: bool = bar_angle >= target_angle && bar_angle <= target_angle + target_arc_length

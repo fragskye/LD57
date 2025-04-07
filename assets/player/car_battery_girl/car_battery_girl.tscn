@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfja8p3u16jmx"]
+
+[ext_resource type="Script" uid="uid://d1h04o0wusc73" path="res://assets/player/car_battery_girl/car_battery_girl.gd" id="1_5ub4a"]
+
+[node name="CarBatteryGirl" type="Node3D"]
+script = ExtResource("1_5ub4a")

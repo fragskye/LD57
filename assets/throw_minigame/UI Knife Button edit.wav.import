@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://drs5vflcvxt16"
+path="res://.godot/imported/UI Knife Button edit.wav-2fcb48a42af9fce0562eb156523ec523.sample"
+
+[deps]
+
+source_file="res://assets/throw_minigame/UI Knife Button edit.wav"
+dest_files=["res://.godot/imported/UI Knife Button edit.wav-2fcb48a42af9fce0562eb156523ec523.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwdgeanw1kj7s"]
+[gd_scene load_steps=12 format=3 uid="uid://dwdgeanw1kj7s"]
 
 [ext_resource type="Script" uid="uid://y3xyge4eshrl" path="res://assets/throw_minigame/throw_minigame.gd" id="1_tspaa"]
 [ext_resource type="PackedScene" uid="uid://dof5or2ve224o" path="res://prefabs/ui/skill_check/skill_check.tscn" id="2_3dv1l"]
@@ -7,7 +7,10 @@
 [ext_resource type="Resource" uid="uid://cs07gaub0j01l" path="res://data/throw_minigame_difficulties/normal.tres" id="3_dji5i"]
 [ext_resource type="Resource" uid="uid://bu4vvf4a6vfjx" path="res://data/throw_minigame_difficulties/easy.tres" id="4_x6o8v"]
 [ext_resource type="Resource" uid="uid://cqegsp7iucbo3" path="res://data/throw_minigame_difficulties/hard.tres" id="6_u1i87"]
-[ext_resource type="PackedScene" uid="uid://ba61kiom0o6bw" path="res://assets/player/car_battery_girl.tscn" id="7_x6o8v"]
+[ext_resource type="PackedScene" uid="uid://bfja8p3u16jmx" path="res://assets/player/car_battery_girl/car_battery_girl.tscn" id="7_x6o8v"]
+[ext_resource type="AudioStream" uid="uid://ba5xw7vrwb60k" path="res://assets/throw_minigame/Air Cyclone Loop edit.wav" id="8_rkmhv"]
+[ext_resource type="AudioStream" uid="uid://ibssxv0fjhsg" path="res://assets/throw_minigame/Gust Fast D edit.wav" id="9_laecx"]
+[ext_resource type="AudioStream" uid="uid://d3tegynnpyj5k" path="res://assets/throw_minigame/audience_cheers_13 edit.wav" id="10_laecx"]
 
 [node name="ThrowMinigame" type="Node3D"]
 process_mode = 1
@@ -26,9 +29,25 @@ transform = Transform3D(1, 0, 0, 0, 0.737277, 0.67559, 0, -0.67559, 0.737277, 0,
 [node name="CarBatteryGirl" parent="." instance=ExtResource("7_x6o8v")]
 unique_name_in_owner = true
 
+[node name="SpinSFX" type="AudioStreamPlayer3D" parent="CarBatteryGirl"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+stream = ExtResource("8_rkmhv")
+volume_db = -12.0
+
+[node name="ThrowSFX" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_laecx")
+volume_db = -7.0
+
 [node name="CutsceneCamera" type="Camera3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(0.996195, -0.0151344, -0.0858316, 0, 0.984808, -0.173648, 0.0871557, 0.172987, 0.98106, -0.809383, 0.890297, 3.07704)
+
+[node name="CrowdSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_laecx")
+volume_db = -4.0
 
 [node name="ThrowMinigameLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

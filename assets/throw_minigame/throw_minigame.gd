@@ -5,11 +5,14 @@ signal power_result(power: float)
 const BATTERY_1: PackedScene = preload("res://assets/BeachItems/CarBattery/battery_1.tscn")
 
 @onready var throw_camera: Camera3D = %ThrowCamera
-@onready var car_battery_girl: Node3D = %CarBatteryGirl
+@onready var car_battery_girl: CarBatteryGirl = %CarBatteryGirl
 @onready var cutscene_camera: Camera3D = %CutsceneCamera
 @onready var throw_minigame_layer: CanvasLayer = %ThrowMinigameLayer
 @onready var skill_check: SkillCheck = %SkillCheck
 @onready var power_bar: ProgressBar = %PowerBar
+@onready var spin_sfx: AudioStreamPlayer3D = %SpinSFX
+@onready var throw_sfx: AudioStreamPlayer3D = %ThrowSFX
+@onready var crowd_sfx: AudioStreamPlayer2D = %CrowdSFX
 
 @export var hit_power_reward: float = 0.1
 @export var miss_power_reward: float = 0.1
@@ -44,6 +47,9 @@ func reset() -> void:
 	time_passed = 0.0
 	skill_check.reset()
 	cutscene = false
+	car_battery_girl.spin_pose()
+	spin_sfx.play()
+	spin_sfx.pitch_scale = 0.01
 	if cpu != null:
 		Engine.time_scale = 3.0
 
@@ -65,6 +71,7 @@ func _process(delta: float) -> void:
 	skill_check.next_target_arc_length = lerpf(difficulty.start_target_arc_length, difficulty.end_target_arc_length, time_mix)
 	skill_check.can_miss_early = difficulty.can_miss_early
 	car_battery_girl.rotation_degrees.y = -skill_check.bar_angle + 90.0
+	spin_sfx.pitch_scale = remap(skill_check.bar_spin_speed, 45.0, 360.0, 0.25, 2.0)
 	
 	if cpu == null:
 		if Input.is_action_just_pressed("skill_check"):
@@ -103,7 +110,14 @@ func _on_skill_check_target_complete() -> void:
 		car_battery_girl.rotation_degrees.y = 180.0
 		cutscene = true
 		EventBus.crowd_cheer.emit()
+		spin_sfx.stop()
 		
+		var old_throw_sfx_position: Vector3 = throw_sfx.global_position
+		throw_sfx.play()
+		crowd_sfx.play()
+		var tween: Tween = create_tween()
+		tween.tween_property(throw_sfx, "global_position", old_throw_sfx_position + Vector3(0.0, 10.0, -25.0), 2.0)
+		tween.tween_property(throw_sfx, "global_position", old_throw_sfx_position, 0.0)
 		cutscene_camera.make_current()
 		Global.environment.terrain_3d.set_camera(cutscene_camera)
 		throw_minigame_layer.hide()
@@ -112,7 +126,7 @@ func _on_skill_check_target_complete() -> void:
 		battery.global_position = car_battery_girl.global_position + Vector3(0.0, 1.0, 0.0)
 		battery.linear_velocity = remap(power, 0.0, 1.0, 0.7, 1.7) * Vector3(0.0, 10.0, -25.0)
 		
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(4.25).timeout
 		
 		battery.queue_free()
 		power_result.emit(power)

@@ -20,6 +20,6 @@ func _on_crowd_cheer() -> void:
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_BOUNCE)
 	tween.tween_property(sprite_transform, "position", Vector3.ZERO, 1.0)
-	tween.tween_interval(0.25)
+	tween.tween_interval(0.5)
 	await tween.finished
 	sprite_3d.texture = standing_texture

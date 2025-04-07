@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ibssxv0fjhsg"
+path="res://.godot/imported/Gust Fast D edit.wav-73497f4a81a3cc3de3b7a1417bf79033.sample"
+
+[deps]
+
+source_file="res://assets/throw_minigame/Gust Fast D edit.wav"
+dest_files=["res://.godot/imported/Gust Fast D edit.wav-73497f4a81a3cc3de3b7a1417bf79033.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
