@@ -36,17 +36,11 @@ _subresources={
 "materials": {
 "Leafs": {
 "use_external/enabled": true,
-"use_external/path": "uid://bkjtf07dqvwv1"
+"use_external/path": "uid://debtyefpvxhd7"
 },
 "Stalk": {
 "use_external/enabled": true,
 "use_external/path": "uid://dhhmkwmxh0jvi"
-}
-},
-"nodes": {
-"PATH:Cylinder": {
-"generate/physics": true,
-"physics/shape_type": 1
 }
 }
 }

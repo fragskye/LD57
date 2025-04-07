@@ -1,10 +1,10 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bkjtf07dqvwv1"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://debtyefpvxhd7"]
 
-[ext_resource type="Shader" uid="uid://cvgohgbt0q3rh" path="res://shaders/standard_transparent.gdshader" id="1_lqpdl"]
+[ext_resource type="Shader" uid="uid://c5syg88jlmhe1" path="res://shaders/standard_backlight_transparent.gdshader" id="1_lqpdl"]
 [ext_resource type="Texture2D" uid="uid://c4vgcrds6uoeg" path="res://assets/UnderwaterItems/Algae/seaweed_Leafs Base Color.png" id="1_q7aao"]
 
 [resource]
-resource_name = "Leafs"
+resource_name = "Red"
 render_priority = 0
 shader = ExtResource("1_lqpdl")
 shader_parameter/albedo = Color(1, 1, 1, 1)
@@ -16,6 +16,7 @@ shader_parameter/roughness = 0.5
 shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
 shader_parameter/specular = 0.5
 shader_parameter/metallic = 0.0
+shader_parameter/backlight = Color(0.752941, 0.752941, 0.752941, 1)
 shader_parameter/uv1_scale = Vector3(1, 1, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)

@@ -1,11 +1,21 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bykc2ylqkpq2i"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bykc2ylqkpq2i"]
 
-[ext_resource type="Texture2D" uid="uid://0o4salq6ki1d" path="res://UnderwaterItems/Castle/castle_Material Base Color.png" id="1_i7brs"]
+[ext_resource type="Texture2D" uid="uid://0o4salq6ki1d" path="res://assets/UnderwaterItems/Castle/castle_Material Base Color.png" id="1_i7brs"]
+[ext_resource type="Shader" uid="uid://bv5d84n0jxqt3" path="res://shaders/standard.gdshader" id="1_mupki"]
 
 [resource]
 resource_name = "Material"
-cull_mode = 2
-diffuse_mode = 3
-specular_mode = 1
-albedo_texture = ExtResource("1_i7brs")
-roughness = 0.5
+render_priority = 0
+shader = ExtResource("1_mupki")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("1_i7brs")
+shader_parameter/albedo_texture_size = Vector2i(1024, 1024)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.5
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)

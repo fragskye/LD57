@@ -1,4 +1,4 @@
-extends Node
+@tool extends Node
 
 var main: Main = null
 var environment: GameEnvironment = null

@@ -12,6 +12,8 @@ extends Node3D
 @export var power: float = 0.0
 @export var keymash_strength : float = 2.0
 
+@export var max_impulse: Vector3 = Vector3.ZERO
+
 var cpu: CPUData = null
 
 var active_battery : CarBattery = null
@@ -43,7 +45,7 @@ func _spawn_car_battery() -> void:
 	await get_tree().process_frame
 	active_battery.get_global_transform_interpolated()
 	active_battery.reset_physics_interpolation()
-	active_battery.linear_velocity = power * Vector3(0, 10, -250)
+	active_battery.linear_velocity = power * (max_impulse + Vector3(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)))
 	active_battery.angular_velocity = Vector3(randf_range(-45.0, 45.0), randf_range(-45.0, 45.0), randf_range(-45.0, 45.0))
 	
 	while still_time < still_time_timeout:

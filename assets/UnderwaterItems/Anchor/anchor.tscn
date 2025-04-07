@@ -1,8 +1,5 @@
-[gd_scene load_steps=2 format=3 uid="uid://chm0kbxk6b6fb"]
+[gd_scene load_steps=2 format=3 uid="uid://c3o5h4stwhocv"]
 
 [ext_resource type="PackedScene" uid="uid://cxjo6s4qhq82j" path="res://assets/UnderwaterItems/Anchor/anchor.glb" id="1_505fj"]
 
 [node name="Anchor" instance=ExtResource("1_505fj")]
-
-[node name="Circle" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86923, 0)

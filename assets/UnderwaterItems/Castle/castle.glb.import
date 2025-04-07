@@ -33,10 +33,36 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
+"materials": {
+"Material.001": {
+"use_external/enabled": true,
+"use_external/path": "uid://bykc2ylqkpq2i"
+},
+"Material.002": {
+"use_external/enabled": true,
+"use_external/path": "uid://bkjj8ti63uvag"
+},
+"Material.003": {
+"use_external/enabled": true,
+"use_external/path": "uid://ca78jw82v6nc7"
+},
+"Material.004": {
+"use_external/enabled": true,
+"use_external/path": "uid://yvmevd6f6e4v"
+},
+"Material.005": {
+"use_external/enabled": true,
+"use_external/path": "uid://d0g7b5vpe5kay"
+},
+"Material.006": {
+"use_external/enabled": true,
+"use_external/path": "uid://c6ktjwwwapxjb"
+}
+},
 "nodes": {
-"PATH:Cylinder_001": {
+"PATH:Castle": {
 "generate/physics": true,
-"physics/shape_type": 0
+"physics/shape_type": 2
 }
 }
 }

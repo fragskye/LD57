@@ -3,6 +3,3 @@
 [ext_resource type="PackedScene" uid="uid://0xh8cdhdkjkq" path="res://assets/UnderwaterItems/Coral/Coral.glb" id="1_xedql"]
 
 [node name="Coral" instance=ExtResource("1_xedql")]
-
-[node name="Cylinder" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22377, 0)
