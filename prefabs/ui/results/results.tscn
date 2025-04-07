@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7hq23lvdlma7"]
+
+[ext_resource type="Script" uid="uid://rpm6pewjvsv7" path="res://prefabs/ui/results/results_layer.gd" id="1_23t7q"]
+[ext_resource type="FontFile" uid="uid://18mvslj0qhg0" path="res://fonts/morning_breeze/MorningBreeze-Bold.otf" id="2_23t7q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pcg3b"]
+font = ExtResource("2_23t7q")
+font_size = 72
+
+[node name="Results" type="CanvasLayer"]
+script = ExtResource("1_23t7q")
+metadata/_custom_type_script = "uid://rpm6pewjvsv7"
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.239216, 0.239216, 0.239216, 0.784314)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -221.5
+offset_top = 52.94
+offset_right = 221.5
+offset_bottom = 124.94
+grow_horizontal = 2
+text = "PLAYER WINS!"
+label_settings = SubResource("LabelSettings_pcg3b")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -236.0
+offset_top = 128.515
+offset_right = 236.0
+offset_bottom = 200.515
+grow_horizontal = 2
+text = "Made in 72 hours for Ludum Dare 57"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.375
+offset_top = -198.84
+offset_right = 355.625
+offset_bottom = 601.16
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+alignment = 1
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -174.5
+offset_top = -129.56
+offset_right = 174.5
+offset_bottom = -59.56
+grow_horizontal = 2
+grow_vertical = 0
+text = "Quit"

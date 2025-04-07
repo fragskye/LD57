@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b15tlakq3bnb7"]
+[gd_scene load_steps=15 format=3 uid="uid://b15tlakq3bnb7"]
 
 [ext_resource type="Script" uid="uid://56edevjlqb0g" path="res://src/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dewdjf5vhfomt" path="res://environment.tscn" id="1_ig7tw"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://btxki3vg4asqt" path="res://assets/gather_battery/gather_battery.tscn" id="8_w48qg"]
 [ext_resource type="PackedScene" uid="uid://bd3husuqtgvie" path="res://prefabs/ui/hud/hud_layer.tscn" id="10_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dlh03lyg72703" path="res://assets/BeachItems/PalmTree/palm_tree.tscn" id="13_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://b7hq23lvdlma7" path="res://prefabs/ui/results/results.tscn" id="14_w48qg"]
 
 [node name="Main" type="Node3D"]
 process_mode = 3
@@ -44,6 +45,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -94.0276, 0)
 
 [node name="PalmTree" parent="." instance=ExtResource("13_ycdy4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1017.18, 105.285, 946.182)
+
+[node name="ResultsLayer" parent="." instance=ExtResource("14_w48qg")]
 
 [connection signal="gathered" from="GatherBattery" to="." method="_on_gather_battery_gathered"]
 [connection signal="power_result" from="ThrowMinigame" to="." method="_on_throw_minigame_power_result"]

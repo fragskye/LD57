@@ -29,4 +29,4 @@ var player_data: PlayerData = null:
 			player_data.score_changed.connect(_on_player_data_score_changed)
 
 func _on_player_data_score_changed(new_score: int) -> void:
-	player_score.text = str(new_score)
+	player_score.text = "%d points" % player_data.score
