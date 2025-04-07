@@ -13,7 +13,7 @@ var current_player_data: PlayerData:
 	get():
 		return Global.players[current_player]
 		
-var _max_rounds : int = 5
+var _max_rounds : int = 3
 var _curr_round : int = 0
 
 func get_current_round() -> int:
