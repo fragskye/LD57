@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwdgeanw1kj7s"]
+[gd_scene load_steps=15 format=3 uid="uid://dwdgeanw1kj7s"]
 
 [ext_resource type="Script" uid="uid://y3xyge4eshrl" path="res://assets/throw_minigame/throw_minigame.gd" id="1_tspaa"]
 [ext_resource type="PackedScene" uid="uid://dof5or2ve224o" path="res://prefabs/ui/skill_check/skill_check.tscn" id="2_3dv1l"]
@@ -12,6 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://dmxtmmv6jag7b" path="res://assets/BeachItems/CarBattery/battery_1.tscn" id="9_gof7q"]
 [ext_resource type="AudioStream" uid="uid://ibssxv0fjhsg" path="res://assets/throw_minigame/Gust Fast D edit.wav" id="9_laecx"]
 [ext_resource type="AudioStream" uid="uid://d3tegynnpyj5k" path="res://assets/throw_minigame/audience_cheers_13 edit.wav" id="10_laecx"]
+[ext_resource type="FontFile" uid="uid://18mvslj0qhg0" path="res://fonts/morning_breeze/MorningBreeze-Bold.otf" id="13_dbql6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m2qhe"]
+font = ExtResource("13_dbql6")
+font_size = 48
 
 [node name="ThrowMinigame" type="Node3D"]
 process_mode = 1
@@ -103,6 +108,29 @@ grow_horizontal = 2
 grow_vertical = 0
 value = 50.0
 show_percentage = false
+
+[node name="PanelContainer" type="PanelContainer" parent="ThrowMinigameLayer/ThrowMinigameMenu/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -28.5
+offset_right = 71.5
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PromptContainer"
+
+[node name="Label" type="Label" parent="ThrowMinigameLayer/ThrowMinigameMenu/MarginContainer/Control/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SPACE"
+label_settings = SubResource("LabelSettings_m2qhe")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="bar_entered_target" from="ThrowMinigameLayer/ThrowMinigameMenu/MarginContainer/Control/SkillCheck" to="." method="_on_skill_check_bar_entered_target"]
 [connection signal="target_complete" from="ThrowMinigameLayer/ThrowMinigameMenu/MarginContainer/Control/SkillCheck" to="." method="_on_skill_check_target_complete"]

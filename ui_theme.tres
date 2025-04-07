@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=26 format=3 uid="uid://cowqmkss8f5ep"]
+[gd_resource type="Theme" load_steps=27 format=3 uid="uid://cowqmkss8f5ep"]
 
 [ext_resource type="FontFile" uid="uid://dmkfitnnkjfuk" path="res://fonts/morning_breeze/MorningBreeze.otf" id="1_2pn01"]
 [ext_resource type="FontFile" uid="uid://c1bonqin6vhla" path="res://fonts/zyzol/Zyzol.otf" id="1_5kxjo"]
@@ -181,6 +181,22 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2bbx"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 16.0
+expand_margin_top = 8.0
+expand_margin_right = 16.0
+expand_margin_bottom = 8.0
+
 [resource]
 BoldLabel/base_type = &"Label"
 BoldLabel/fonts/font = ExtResource("1_tbeor")
@@ -227,6 +243,8 @@ PlayerScore/base_type = &"PanelContainer"
 PlayerScore/styles/panel = SubResource("StyleBoxFlat_5y56j")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_touxu")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_dmjyp")
+PromptContainer/base_type = &"PanelContainer"
+PromptContainer/styles/panel = SubResource("StyleBoxFlat_x2bbx")
 StrongLabel/base_type = &"Label"
 StrongLabel/font_sizes/font_size = 36
 StrongLabel/fonts/font = ExtResource("1_5kxjo")
