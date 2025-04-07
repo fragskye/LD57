@@ -73,6 +73,10 @@ func _physics_process(delta: float) -> void:
 			still_time += delta
 		else:
 			still_time = 0
+		# HACK: quick and dirty bounds check. should be using a world boundary and collision callback
+		if active_battery.global_position.y < -600.0:
+			Engine.time_scale = 1.0 
+			score_result.emit(active_battery.current_score + 1000) # home run bonus!
 
 func _on_input_state_changed(old_state: InputManager.InputState, new_state: InputManager.InputState) -> void:
 	_input_state_changed_this_frame = true
