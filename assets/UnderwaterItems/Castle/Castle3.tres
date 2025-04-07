@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bykc2ylqkpq2i"]
+
+[ext_resource type="Texture2D" uid="uid://0o4salq6ki1d" path="res://UnderwaterItems/Castle/castle_Material Base Color.png" id="1_i7brs"]
+
+[resource]
+resource_name = "Material"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_i7brs")
+roughness = 0.5
