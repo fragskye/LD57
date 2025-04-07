@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwdgeanw1kj7s"]
+[gd_scene load_steps=13 format=3 uid="uid://dwdgeanw1kj7s"]
 
 [ext_resource type="Script" uid="uid://y3xyge4eshrl" path="res://assets/throw_minigame/throw_minigame.gd" id="1_tspaa"]
 [ext_resource type="PackedScene" uid="uid://dof5or2ve224o" path="res://prefabs/ui/skill_check/skill_check.tscn" id="2_3dv1l"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://cqegsp7iucbo3" path="res://data/throw_minigame_difficulties/hard.tres" id="6_u1i87"]
 [ext_resource type="PackedScene" uid="uid://bfja8p3u16jmx" path="res://assets/player/car_battery_girl/car_battery_girl.tscn" id="7_x6o8v"]
 [ext_resource type="AudioStream" uid="uid://ba5xw7vrwb60k" path="res://assets/throw_minigame/Air Cyclone Loop edit.wav" id="8_rkmhv"]
+[ext_resource type="PackedScene" uid="uid://dmxtmmv6jag7b" path="res://assets/BeachItems/CarBattery/battery_1.tscn" id="9_gof7q"]
 [ext_resource type="AudioStream" uid="uid://ibssxv0fjhsg" path="res://assets/throw_minigame/Gust Fast D edit.wav" id="9_laecx"]
 [ext_resource type="AudioStream" uid="uid://d3tegynnpyj5k" path="res://assets/throw_minigame/audience_cheers_13 edit.wav" id="10_laecx"]
 
@@ -34,6 +35,11 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
 stream = ExtResource("8_rkmhv")
 volume_db = -12.0
+
+[node name="HeldBattery" parent="CarBatteryGirl" instance=ExtResource("9_gof7q")]
+unique_name_in_owner = true
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 0.191494, 0.981494, 0, -0.981494, 0.191494, 0.0369114, 0.676995, 0.595855)
 
 [node name="ThrowSFX" type="AudioStreamPlayer3D" parent="."]
 unique_name_in_owner = true
