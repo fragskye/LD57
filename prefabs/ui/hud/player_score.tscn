@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://l3oyh7re1mdl"]
 
-[ext_resource type="Texture2D" uid="uid://cgtsjff3nx1la" path="res://icon.svg" id="1_i4lcm"]
 [ext_resource type="Script" uid="uid://dop4jcq1emlhq" path="res://prefabs/ui/hud/player_score.gd" id="1_wumeh"]
+[ext_resource type="Texture2D" uid="uid://c1mgxrnoskdfm" path="res://assets/avatar_transparent.png" id="2_wumeh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wumeh"]
 bg_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
@@ -41,8 +41,9 @@ layout_mode = 2
 
 [node name="PlayerIcon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
-texture = ExtResource("1_i4lcm")
+texture = ExtResource("2_wumeh")
 expand_mode = 2
 
 [node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer"]

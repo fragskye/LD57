@@ -181,6 +181,8 @@ mouse_filter = 2
 
 [node name="Transform" type="Control" parent="NotificationMenu/MarginContainer/Control/Center"]
 anchors_preset = 0
+offset_top = 2000.0
+offset_bottom = 2000.0
 mouse_filter = 2
 
 [node name="PlayerNameLabel" type="Label" parent="NotificationMenu/MarginContainer/Control/Center/Transform"]
