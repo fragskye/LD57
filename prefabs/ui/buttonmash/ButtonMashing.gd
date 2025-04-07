@@ -4,6 +4,7 @@ extends CanvasLayer
 signal on_successful_keymash()
 
 @onready var label : Label = $TextureRect/Label
+@onready var rect : TextureRect = $TextureRect
 
 @export var max_mashes : int = 5
 
@@ -11,7 +12,7 @@ var _random_keys : Array[String] = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L']
 var _random_key_idx : int = 0
 
 var _is_active : bool = false
-
+var _active_tween : Tween = null
 var _current_mashes : int = 0
 
 func _ready() -> void:
@@ -43,6 +44,12 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	on_successful_keymash.emit()
 	_current_mashes = _current_mashes + 1
 	_randomize_key()
+	
+	if _active_tween != null:
+		_active_tween.stop()
+	rect.scale = Vector2(1.3, 1.3)
+	_active_tween = get_tree().create_tween()
+	_active_tween.tween_property(rect, "scale", Vector2.ONE, 1)
 	
 	if _current_mashes >= max_mashes:
 		disable()
