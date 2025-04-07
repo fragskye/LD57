@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b15e4rs0nwdis"
-path.s3tc="res://.godot/imported/packed_albedo_height.png-93de51b5547c961bd880c2765cf00caf.s3tc.ctex"
+uid="uid://x40t24djtuh4"
+path.s3tc="res://.godot/imported/packed_albedo_height.png-590be1b85a996be6617cbf23edb466d8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Textures/sand/packed_albedo_height.png"
-dest_files=["res://.godot/imported/packed_albedo_height.png-93de51b5547c961bd880c2765cf00caf.s3tc.ctex"]
+source_file="res://assets/Textures/beach_sand/packed_albedo_height.png"
+dest_files=["res://.godot/imported/packed_albedo_height.png-590be1b85a996be6617cbf23edb466d8.s3tc.ctex"]
 
 [params]
 

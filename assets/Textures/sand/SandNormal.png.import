@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0dtb7pa0vn14"
-path="res://.godot/imported/SandSmoothness.jpg-b6ecdc5af736178420fc28b983ae20cc.ctex"
+uid="uid://dydqtpbn0dty"
+path="res://.godot/imported/SandNormal.png-118eb3e2b9f66e0a59e1e0da9af220b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Textures/SandSmoothness.jpg"
-dest_files=["res://.godot/imported/SandSmoothness.jpg-b6ecdc5af736178420fc28b983ae20cc.ctex"]
+source_file="res://assets/Textures/sand/SandNormal.png"
+dest_files=["res://.godot/imported/SandNormal.png-118eb3e2b9f66e0a59e1e0da9af220b5.ctex"]
 
 [params]
 

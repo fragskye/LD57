@@ -1,11 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://dewdjf5vhfomt"]
+[gd_scene load_steps=20 format=3 uid="uid://dewdjf5vhfomt"]
 
 [ext_resource type="Material" uid="uid://yaq2oyu01vsn" path="res://assets/sky.tres" id="1_0dwx2"]
 [ext_resource type="Script" uid="uid://gkx7trnu0yaw" path="res://src/environment.gd" id="1_00014"]
 [ext_resource type="Shader" uid="uid://3cqus7h8uoq6" path="res://shaders/terrain.gdshader" id="3_dm4p5"]
 [ext_resource type="PackedScene" uid="uid://duncyhaso1fl8" path="res://assets/ocean/ocean.tscn" id="3_wetts"]
-[ext_resource type="Texture2D" uid="uid://clpwb7npaamkt" path="res://assets/Textures/sand/packed_albedo_height.png" id="4_dm4p5"]
-[ext_resource type="Texture2D" uid="uid://b80kvvwn6abm1" path="res://assets/Textures/sand/packed_normal_roughness.png" id="5_pk5nr"]
+[ext_resource type="Texture2D" uid="uid://b15e4rs0nwdis" path="res://assets/Textures/sand/packed_albedo_height.png" id="4_dm4p5"]
+[ext_resource type="Texture2D" uid="uid://dsrfcoy2pc0oa" path="res://assets/Textures/sand/packed_normal_roughness.png" id="5_pk5nr"]
+[ext_resource type="Texture2D" uid="uid://x40t24djtuh4" path="res://assets/Textures/beach_sand/packed_albedo_height.png" id="6_poig3"]
+[ext_resource type="Texture2D" uid="uid://1dt583dk42v3" path="res://assets/Textures/beach_sand/packed_normal_roughness.png" id="7_2eiut"]
 
 [sub_resource type="Sky" id="Sky_0dwx2"]
 sky_material = ExtResource("1_0dwx2")
@@ -53,8 +55,8 @@ _shader_parameters = {
 &"enable_macro_variation": true,
 &"enable_projection": true,
 &"height_blending": true,
-&"macro_variation1": Color(1, 1, 1, 1),
-&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation1": Color(0.930785, 0.90087, 0.893678, 1),
+&"macro_variation2": Color(0.880406, 0.899243, 0.903766, 1),
 &"macro_variation_slope": 0.333,
 &"mipmap_bias": 1.0,
 &"noise1_angle": 0.0,
@@ -93,10 +95,17 @@ lod0_range = 128.0
 name = "environment"
 albedo_texture = ExtResource("4_dm4p5")
 normal_texture = ExtResource("5_pk5nr")
+roughness = 0.3
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_oqxhg"]
+name = "packed_albedo_height"
+id = 1
+albedo_texture = ExtResource("6_poig3")
+normal_texture = ExtResource("7_2eiut")
 
 [sub_resource type="Terrain3DAssets" id="Terrain3DAssets_pk5nr"]
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_dm4p5")])
-texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_pk5nr")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_pk5nr"), SubResource("Terrain3DTextureAsset_oqxhg")])
 
 [node name="Environment" type="Node3D"]
 script = ExtResource("1_00014")

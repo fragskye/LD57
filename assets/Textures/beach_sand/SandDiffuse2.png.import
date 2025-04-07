@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch78v3q3uc6cf"
-path="res://.godot/imported/SandNormal.jpg-976d0b9d538f8361b209880a64cea785.ctex"
+uid="uid://xy3p1i4le4rl"
+path="res://.godot/imported/SandDiffuse2.png-64253ac7274968da3881ad771ee197a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Textures/SandNormal.jpg"
-dest_files=["res://.godot/imported/SandNormal.jpg-976d0b9d538f8361b209880a64cea785.ctex"]
+source_file="res://assets/Textures/beach_sand/SandDiffuse2.png"
+dest_files=["res://.godot/imported/SandDiffuse2.png-64253ac7274968da3881ad771ee197a2.ctex"]
 
 [params]
 
