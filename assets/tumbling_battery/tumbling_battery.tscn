@@ -32,18 +32,17 @@ size = Vector2(0.15, 0.15)
 script = ExtResource("1_rjiij")
 camera = NodePath("CameraFollowPoint/CameraRig/Camera")
 keymash_strength = 15.0
-max_impulse = Vector3(0, 15, -275)
+max_impulse = Vector3(0, 15, -325)
 metadata/_custom_type_script = "uid://bmqyf81l0ols8"
 
 [node name="CameraFollowPoint" type="Node3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_ak1jv")
 metadata/_custom_type_script = "uid://fm70cpajxi52"
 
 [node name="CameraRig" type="Node3D" parent="CameraFollowPoint"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0.5, 0)
 script = ExtResource("3_o4c40")
 camera_soft_margin = 1.0
 camera_collision_mask = 1
@@ -78,3 +77,4 @@ process_material = SubResource("ParticleProcessMaterial_aayfa")
 draw_pass_1 = SubResource("QuadMesh_1w8se")
 
 [node name="ButtonMashing" parent="." instance=ExtResource("5_aayfa")]
+max_mashes = 10

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmtg5nl51aom8"]
+[gd_scene load_steps=7 format=3 uid="uid://dmtg5nl51aom8"]
 
 [ext_resource type="Script" uid="uid://bq2ox7ph5xgh5" path="res://assets/player/player.gd" id="1_d6veg"]
 [ext_resource type="Script" uid="uid://bnvddg64wt3s1" path="res://assets/player/player_camera_rig.gd" id="2_h6syq"]
+[ext_resource type="PackedScene" uid="uid://ba61kiom0o6bw" path="res://assets/player/car_battery_girl.tscn" id="2_v2miy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d6veg"]
 height = 1.6
@@ -22,8 +23,12 @@ script = ExtResource("1_d6veg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 shape = SubResource("CapsuleShape3D_d6veg")
 
+[node name="CarBatteryGirl" parent="." instance=ExtResource("2_v2miy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_h6syq")
 
 [node name="PlayerCameraRig" type="Node3D" parent="."]

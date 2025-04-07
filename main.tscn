@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b15tlakq3bnb7"]
+[gd_scene load_steps=16 format=3 uid="uid://b15tlakq3bnb7"]
 
 [ext_resource type="Script" uid="uid://56edevjlqb0g" path="res://src/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dewdjf5vhfomt" path="res://environment.tscn" id="1_ig7tw"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://br6jk1bntdsh1" path="res://data/cpus/charlie.tres" id="5_ycdy4"]
 [ext_resource type="Script" uid="uid://ctjui5q1gi6ph" path="res://src/throw_area.gd" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dkpdp6i0g56ji" path="res://assets/tumbling_battery/tumbling_battery.tscn" id="7_5vw27"]
+[ext_resource type="PackedScene" uid="uid://btxki3vg4asqt" path="res://assets/gather_battery/gather_battery.tscn" id="8_w48qg"]
 [ext_resource type="PackedScene" uid="uid://bd3husuqtgvie" path="res://prefabs/ui/hud/hud_layer.tscn" id="10_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dlh03lyg72703" path="res://assets/BeachItems/PalmTree/palm_tree.tscn" id="13_ycdy4"]
 
@@ -30,12 +31,15 @@ unique_name_in_owner = true
 [node name="Player" parent="." instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1014.05, 105.937, 944.236)
 
+[node name="GatherBattery" parent="." instance=ExtResource("8_w48qg")]
+transform = Transform3D(-0.976043, -0.0156789, 0.217014, -0.03824, 0.994237, -0.100156, -0.214193, -0.106055, -0.971017, -1006.53, 107.67, 973.414)
+
 [node name="ThrowMinigame" parent="." instance=ExtResource("5_lquwl")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -997, 105, 946)
+transform = Transform3D(0.999564, -0.029493, -0.00103793, 0.029493, 0.997091, 0.0702789, -0.00103782, -0.0702789, 0.997527, -996.878, 105.974, 945.735)
 
 [node name="ThrowArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -997, 105, 946)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -996.878, 105.974, 945.735)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("6_7mycd")
@@ -61,5 +65,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -94.0276, 0)
 [node name="PalmTree" parent="." instance=ExtResource("13_ycdy4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1017.18, 105.285, 946.182)
 
+[connection signal="gathered" from="GatherBattery" to="." method="_on_gather_battery_gathered"]
 [connection signal="power_result" from="ThrowMinigame" to="." method="_on_throw_minigame_power_result"]
 [connection signal="score_result" from="TumblingBattery" to="." method="_on_tumbling_battery_score_result"]

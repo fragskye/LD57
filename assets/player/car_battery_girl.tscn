@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba61kiom0o6bw"]
+
+[ext_resource type="PackedScene" uid="uid://dcoqadtllwaq2" path="res://assets/player/CarBatteryGirl.glb" id="1_7av6w"]
+
+[node name="CarBatteryGirl" instance=ExtResource("1_7av6w")]

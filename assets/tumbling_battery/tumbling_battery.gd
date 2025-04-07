@@ -45,7 +45,7 @@ func _spawn_car_battery() -> void:
 	await get_tree().process_frame
 	active_battery.get_global_transform_interpolated()
 	active_battery.reset_physics_interpolation()
-	active_battery.linear_velocity = power * (max_impulse + Vector3(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)))
+	active_battery.linear_velocity = remap(power, 0.0, 1.0, 0.2, 1.0) * (max_impulse + Vector3(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)))
 	active_battery.angular_velocity = Vector3(randf_range(-45.0, 45.0), randf_range(-45.0, 45.0), randf_range(-45.0, 45.0))
 	
 	while still_time < still_time_timeout:
@@ -97,13 +97,13 @@ func _on_successful_keymash() -> void:
 	if active_battery == null:
 		return
 	
-	var direction : Vector3 = Vector3(0, 1, 0)
+	var direction : Vector3 = Vector3(0.0, 0.5, 0.0)
 	
 	if cpu == null:
-		var camera_direction : Vector3 = (-camera_follow.global_basis.z).normalized()
-		camera_direction.y = 0
-		direction += camera_direction
+		var camera_direction : Vector3 = -camera.global_basis.z
+		camera_direction.y = 0.0
+		direction += camera_direction.normalized()
 	else:
-		direction += Vector3(randf(), 0, randf())
+		direction += Vector3(0.0, 0.0, 1.0).rotated(Vector3.UP, randf_range(0.0, 360.0))
 
 	active_battery.apply_impulse(keymash_strength * direction)

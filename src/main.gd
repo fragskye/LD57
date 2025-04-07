@@ -27,6 +27,10 @@ func _ready() -> void:
 	EventBus.player_turn_started.emit(Global.players[0])
 	EventBus.throw_area_entered.connect(_on_throw_area_entered)
 
+func _on_gather_battery_gathered() -> void:
+	throw_minigame.reset()
+	InputManager.switch_input_state(InputManager.InputState.THROW_MINIGAME)
+
 func _on_throw_minigame_power_result(power: float) -> void:
 	tumbling_battery.reset()
 	tumbling_battery.power = power
@@ -40,7 +44,7 @@ func _on_tumbling_battery_score_result(score: int) -> void:
 	EventBus.player_turn_started.emit(Global.players[current_player])
 	if current_player_data.cpu == null:
 		Engine.time_scale = 1.0
-		InputManager.switch_input_state(InputManager.InputState.THIRD_PERSON)
+		InputManager.switch_input_state(InputManager.InputState.GATHER_BATTERY)
 	else:
 		throw_minigame.reset()
 		InputManager.switch_input_state(InputManager.InputState.THROW_MINIGAME)

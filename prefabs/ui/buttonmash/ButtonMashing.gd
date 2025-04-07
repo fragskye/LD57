@@ -5,12 +5,13 @@ signal on_successful_keymash()
 
 @onready var label : Label = $TextureRect/Label
 
+@export var max_mashes : int = 5
+
 var _random_keys : Array[String] = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L']
 var _random_key_idx : int = 0
 
 var _is_active : bool = false
 
-var _max_mashes : int = 5
 var _current_mashes : int = 0
 
 func _ready() -> void:
@@ -43,7 +44,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	_current_mashes = _current_mashes + 1
 	_randomize_key()
 	
-	if _current_mashes == _max_mashes:
+	if _current_mashes >= max_mashes:
 		disable()
 
 func _randomize_key() -> void:

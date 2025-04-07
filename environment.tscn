@@ -199,6 +199,7 @@ directional_shadow_max_distance = 750.0
 data_directory = "res://data/terrain"
 material = SubResource("Terrain3DMaterial_00014")
 assets = SubResource("Terrain3DAssets_pk5nr")
+collision_mode = 2
 collision_shape_size = 64
 collision_radius = 80
 unique_name_in_owner = true
