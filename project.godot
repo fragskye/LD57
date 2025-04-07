@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="LD57"
+config/name="Treats for Charybdis"
 run/main_scene="uid://b15tlakq3bnb7"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
