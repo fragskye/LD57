@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfja8p3u16jmx"]
+[gd_scene load_steps=3 format=3 uid="uid://bfja8p3u16jmx"]
 
 [ext_resource type="Script" uid="uid://d1h04o0wusc73" path="res://assets/player/car_battery_girl/car_battery_girl.gd" id="1_5ub4a"]
+[ext_resource type="PackedScene" uid="uid://dj6qtgun63wgk" path="res://assets/player/car_battery_girl/car_battery_girl.glb" id="2_30lam"]
 
 [node name="CarBatteryGirl" type="Node3D"]
 script = ExtResource("1_5ub4a")
+
+[node name="car_battery_girl" parent="." instance=ExtResource("2_30lam")]
+
+[editable path="car_battery_girl"]

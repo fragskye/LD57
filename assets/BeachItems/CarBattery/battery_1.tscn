@@ -1,10 +1,16 @@
-[gd_scene load_steps=9 format=4 uid="uid://dmxtmmv6jag7b"]
+[gd_scene load_steps=15 format=4 uid="uid://dmxtmmv6jag7b"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://cuy4wkbp7hd86" path="res://assets/BeachItems/CarBattery/battery_physics_material.tres" id="1_2sgcl"]
 [ext_resource type="Material" uid="uid://bdgwdrg0di5kl" path="res://assets/BeachItems/CarBattery/BlackPlastic.tres" id="2_177yp"]
-[ext_resource type="Script" path="res://assets/BeachItems/CarBattery/car_battery.gd" id="2_jxhla"]
+[ext_resource type="Script" uid="uid://c5ovj465ulgw5" path="res://assets/BeachItems/CarBattery/car_battery.gd" id="2_jxhla"]
 [ext_resource type="Material" uid="uid://c0qt71ckmq720" path="res://assets/BeachItems/CarBattery/MetalBattery.tres" id="3_jxhla"]
+[ext_resource type="AudioStream" uid="uid://rxjli1jtmulp" path="res://assets/BeachItems/CarBattery/Metallic Crash B.wav" id="3_l6uf8"]
+[ext_resource type="AudioStream" uid="uid://dn3iyqq77ieji" path="res://assets/BeachItems/CarBattery/Metallic Hit B.wav" id="4_45dl0"]
 [ext_resource type="Material" uid="uid://hbxcm3bgse5u" path="res://assets/BeachItems/CarBattery/Sticker1.tres" id="4_48uvg"]
+[ext_resource type="AudioStream" uid="uid://buyf6kbgv4n5q" path="res://assets/BeachItems/CarBattery/Metallic Hit F.wav" id="5_efsg8"]
+[ext_resource type="AudioStream" uid="uid://e1eyojo4wcig" path="res://assets/BeachItems/CarBattery/Metallic Hit G.wav" id="6_fjq7s"]
+[ext_resource type="AudioStream" uid="uid://bbhuu8lcyptbs" path="res://assets/BeachItems/CarBattery/Metallic Hit H.wav" id="7_3syra"]
+[ext_resource type="AudioStream" uid="uid://y7feskhyq81s" path="res://assets/BeachItems/CarBattery/Metallic Hit J.wav" id="8_xlonu"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_d2xe5"]
 _surfaces = [{
@@ -98,6 +104,8 @@ contact_monitor = true
 max_contacts_reported = 4
 script = ExtResource("2_jxhla")
 depth_score_step = 3.25
+collision_score_minimum = 1.5
+crash_audio = Array[AudioStream]([ExtResource("3_l6uf8"), ExtResource("4_45dl0"), ExtResource("5_efsg8"), ExtResource("6_fjq7s"), ExtResource("7_3syra"), ExtResource("8_xlonu")])
 
 [node name="CarBattery" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_wnlb3")
@@ -105,3 +113,7 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_citj7")
+
+[node name="CrashSFX" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+bus = &"Underwater"

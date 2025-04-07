@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkpdp6i0g56ji"]
+[gd_scene load_steps=13 format=3 uid="uid://dkpdp6i0g56ji"]
 
 [ext_resource type="Script" uid="uid://fm70cpajxi52" path="res://assets/tumbling_battery/camera_follow_point.gd" id="1_ak1jv"]
 [ext_resource type="Script" uid="uid://bmqyf81l0ols8" path="res://assets/tumbling_battery/tumbling_battery.gd" id="1_rjiij"]
 [ext_resource type="Script" uid="uid://bnvddg64wt3s1" path="res://assets/player/player_camera_rig.gd" id="3_o4c40"]
 [ext_resource type="Material" uid="uid://cpscc66uurao7" path="res://assets/vfx/ocean_particle.tres" id="4_0vjt0"]
 [ext_resource type="PackedScene" uid="uid://dxixgkl8t8gxl" path="res://prefabs/ui/buttonmash/ButtonMashing.tscn" id="5_aayfa"]
+[ext_resource type="AudioStream" uid="uid://cfqeu8qv613vj" path="res://assets/tumbling_battery/Ambience Oceanic World Loop 001.wav" id="5_djnsd"]
+[ext_resource type="AudioStream" uid="uid://dqg28wr8brw2o" path="res://assets/tumbling_battery/442773__qubodup__big-water-splash.wav" id="6_1w8se"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_o4c40"]
 
@@ -75,6 +77,17 @@ lifetime = 4.0
 visibility_aabb = AABB(-50, -50, -50, 100, 100, 100)
 process_material = SubResource("ParticleProcessMaterial_aayfa")
 draw_pass_1 = SubResource("QuadMesh_1w8se")
+
+[node name="UnderwaterSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_djnsd")
+volume_db = 3.0
+
+[node name="SplashSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_1w8se")
+volume_db = -6.0
+bus = &"Underwater"
 
 [node name="ButtonMashing" parent="." instance=ExtResource("5_aayfa")]
 max_mashes = 10

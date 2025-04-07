@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://y7feskhyq81s"
+path="res://.godot/imported/Metallic Hit J.wav-d5ff1d98be9ab729ca72c015ab6c0f31.sample"
+
+[deps]
+
+source_file="res://assets/BeachItems/CarBattery/Metallic Hit J.wav"
+dest_files=["res://.godot/imported/Metallic Hit J.wav-d5ff1d98be9ab729ca72c015ab6c0f31.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

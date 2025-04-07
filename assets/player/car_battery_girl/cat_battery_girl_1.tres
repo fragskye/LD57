@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://0b33ktxhrncp"]
+
+[ext_resource type="Texture2D" uid="uid://c0stndokxaonh" path="res://assets/player/car_battery_girl/uv_pixel.png" id="1_pggm4"]
+
+[resource]
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_pggm4")
+texture_filter = 0

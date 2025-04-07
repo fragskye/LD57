@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://btxki3vg4asqt"]
 
 [ext_resource type="Script" uid="uid://bquymjoud3xwe" path="res://assets/gather_battery/gather_battery.gd" id="1_hdkee"]
-[ext_resource type="PackedScene" uid="uid://dcoqadtllwaq2" path="res://assets/player/CarBatteryGirl.glb" id="2_sc8jn"]
+[ext_resource type="PackedScene" uid="uid://bfja8p3u16jmx" path="res://assets/player/car_battery_girl/car_battery_girl.tscn" id="2_sc8jn"]
 [ext_resource type="PackedScene" uid="uid://dmxtmmv6jag7b" path="res://assets/BeachItems/CarBattery/battery_1.tscn" id="3_a82tk"]
 
 [node name="GatherBattery" type="Node3D"]

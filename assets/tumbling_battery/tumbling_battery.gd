@@ -5,6 +5,8 @@ extends Node3D
 @onready var camera_follow : CameraFollowPoint3D = $CameraFollowPoint
 @onready var vfx_follow: CameraFollowPoint3D = $VFXFollowPoint
 @onready var button_mash : ButtonMashing = $ButtonMashing
+@onready var underwater_sfx: AudioStreamPlayer2D = %UnderwaterSFX
+@onready var splash_sfx: AudioStreamPlayer2D = %SplashSFX
 
 @export var camera : Camera3D
 @export var still_time_timeout: float = 1.0
@@ -32,6 +34,8 @@ func _ready() -> void:
 func reset() -> void:
 	active_battery = null
 	still_time = 0.0
+	underwater_sfx.play()
+	splash_sfx.play()
 	if cpu != null:
 		Engine.time_scale = 3.0
 
@@ -88,6 +92,7 @@ func _on_input_state_changed(old_state: InputManager.InputState, new_state: Inpu
 		_:
 			hide()
 			button_mash.disable()
+			underwater_sfx.stop()
 			process_mode = Node.PROCESS_MODE_DISABLED
 
 func _on_player_turn_started(player_data: PlayerData) -> void:

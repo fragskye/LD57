@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ch7bjvyf2d6y" path="res://assets/cutouts/crowd_1_cheer.png" id="2_e6r5u"]
 
 [node name="Crowd1" type="Node3D"]
+process_mode = 1
 script = ExtResource("1_l3mrn")
 cheer_texture = ExtResource("2_e6r5u")
 

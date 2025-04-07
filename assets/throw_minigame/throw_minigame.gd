@@ -87,7 +87,7 @@ func _on_skill_check_bar_entered_target() -> void:
 		var time_mix: float = minf(1.0, time_passed / time_to_max)
 		if cpu.throw_minigame_get_success(time_mix):
 			var delay: float = cpu.throw_minigame_get_delay(time_mix)
-			await get_tree().create_timer(delay).timeout
+			await get_tree().create_timer(delay, false).timeout
 			skill_check.press_bar()
 
 func _on_skill_check_target_hit() -> void:
@@ -126,7 +126,7 @@ func _on_skill_check_target_complete() -> void:
 		battery.global_position = car_battery_girl.global_position + Vector3(0.0, 1.0, 0.0)
 		battery.linear_velocity = remap(power, 0.0, 1.0, 0.7, 1.7) * Vector3(0.0, 10.0, -25.0)
 		
-		await get_tree().create_timer(4.25).timeout
+		await get_tree().create_timer(4.25, false).timeout
 		
 		battery.queue_free()
 		power_result.emit(power)

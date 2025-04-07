@@ -17,8 +17,8 @@ func _process(delta: float) -> void:
 	if InputManager.get_input_state() != InputManager.InputState.GATHER_BATTERY:
 		return
 	
-	#if Input.is_action_just_pressed("pause"):
-		#InputManager.push_input_state(InputManager.InputState.MENU)
+	if Input.is_action_just_pressed("pause"):
+		InputManager.push_input_state(InputManager.InputState.MENU)
 
 func _on_input_state_changed(old_state: InputManager.InputState, new_state: InputManager.InputState) -> void:
 	if old_state == InputManager.InputState.MENU || new_state == InputManager.InputState.MENU:
@@ -31,7 +31,7 @@ func _on_input_state_changed(old_state: InputManager.InputState, new_state: Inpu
 			Global.environment.terrain_3d.set_camera(cutscene_camera)
 			process_mode = Node.PROCESS_MODE_PAUSABLE
 			
-			await get_tree().create_timer(3.0).timeout
+			await get_tree().create_timer(3.0, false).timeout
 			
 			gathered.emit()
 		_:
