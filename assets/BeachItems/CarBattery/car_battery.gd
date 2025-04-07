@@ -3,6 +3,9 @@ extends RigidBody3D
 
 @onready var crash_sfx: AudioStreamPlayer3D = %CrashSFX
 
+## Directly multiplies every score. Bigger number better person
+@export var score_multiplier : float = 1.0
+
 ## Minimum depth under the water for the depth score to begin accumulating
 @export var depth_score_minimum : float = -50
 
@@ -34,7 +37,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 func _process(delta: float) -> void:
 	if (global_position.y < depth_score_minimum):
 		var depth : float = abs(global_position.y - depth_score_minimum)
-		_depth_score = ceili(depth / depth_score_step)
+		_depth_score = ceili(depth / depth_score_step) * score_multiplier
 	else:
 		_depth_score = 0
 	
@@ -55,6 +58,12 @@ func _on_collision(body: Node) -> void:
 	crash_sfx.volume_linear = remap(crash_intensity, 0.0, 1.0, 0.1, 0.9)
 	crash_sfx.play()
 	
-	var this_collision_score : float = ceili((impact_velocity - collision_score_minimum) / collision_score_step)
+	var this_collision_score : float = ceili((impact_velocity - collision_score_minimum) / collision_score_step * score_multiplier)
 	
+	if crash_intensity < 0.2:
+		EventBus.score_event.emit("Tumble", this_collision_score)
+	elif crash_intensity < 0.6:
+		EventBus.score_event.emit("Bonk", this_collision_score)
+	else:
+		EventBus.score_event.emit("Crash", this_collision_score)
 	_collision_score += this_collision_score

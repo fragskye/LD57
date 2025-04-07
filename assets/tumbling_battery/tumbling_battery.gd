@@ -55,7 +55,8 @@ func _spawn_car_battery() -> void:
 	while still_time < still_time_timeout:
 		await get_tree().physics_frame
 	
-	Engine.time_scale = 1.0 
+	Engine.time_scale = 1.0
+	EventBus.score_event.emit("Depth reached", active_battery._depth_score)
 	score_result.emit(active_battery.current_score)
 
 func _process(delta: float) -> void:
@@ -76,7 +77,9 @@ func _physics_process(delta: float) -> void:
 		# HACK: quick and dirty bounds check. should be using a world boundary and collision callback
 		if active_battery.global_position.y < -600.0:
 			Engine.time_scale = 1.0 
-			score_result.emit(active_battery.current_score + 1000) # home run bonus!
+			EventBus.score_event.emit("Depth reached", active_battery._depth_score)
+			score_result.emit(active_battery.current_score + 3000) # home run bonus!
+			EventBus.score_event.emit("Home run!", 3000)
 
 func _on_input_state_changed(old_state: InputManager.InputState, new_state: InputManager.InputState) -> void:
 	_input_state_changed_this_frame = true

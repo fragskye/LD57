@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://3635wtrrqho4"]
+
+[ext_resource type="Script" uid="uid://buw2a5ymkoo6q" path="res://prefabs/ui/hud/notification_layer.gd" id="1_auiov"]
+[ext_resource type="Shader" uid="uid://dvc35umojhyd" path="res://shaders/ui/fade.gdshader" id="2_bl0h4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gsfwc"]
+shader = ExtResource("2_bl0h4")
+shader_parameter/color = Color(0, 0, 0, 0.25098)
+shader_parameter/gradient_center = Vector2(0.75, 0.5)
+shader_parameter/direction = Vector2(-4, 0)
+
+[node name="NotificationLayer" type="CanvasLayer"]
+script = ExtResource("1_auiov")
+
+[node name="NotificationMenu" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="NotificationShadow" type="ColorRect" parent="NotificationMenu"]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_gsfwc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="NotificationMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 128
+
+[node name="Control" type="Control" parent="NotificationMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="NotificationMenu/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ScoreEventPopupList" type="VBoxContainer" parent="NotificationMenu/MarginContainer/Control/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_right = -40.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2

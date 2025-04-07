@@ -103,6 +103,7 @@ continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 4
 script = ExtResource("2_jxhla")
+score_multiplier = 3.0
 depth_score_step = 3.25
 collision_score_minimum = 1.5
 crash_audio = Array[AudioStream]([ExtResource("3_l6uf8"), ExtResource("4_45dl0"), ExtResource("5_efsg8"), ExtResource("6_fjq7s"), ExtResource("7_3syra"), ExtResource("8_xlonu")])

@@ -1,0 +1,143 @@
+[gd_scene load_steps=8 format=3 uid="uid://dk7chk7fvxrr"]
+
+[ext_resource type="FontFile" uid="uid://18mvslj0qhg0" path="res://fonts/morning_breeze/MorningBreeze-Bold.otf" id="1_aocn5"]
+[ext_resource type="Script" uid="uid://bq8w1nf7nytkw" path="res://prefabs/ui/hud/score_event_popup.gd" id="1_fk6ix"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fk6ix"]
+font = ExtResource("1_aocn5")
+font_size = 56
+
+[sub_resource type="LabelSettings" id="LabelSettings_w6vp3"]
+font = ExtResource("1_aocn5")
+font_size = 40
+
+[sub_resource type="Animation" id="Animation_6ae5x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%VBoxContainer/..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%VBoxContainer/..:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w6vp3"]
+resource_name = "score_event_popup"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%VBoxContainer/..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%VBoxContainer/..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%VBoxContainer/../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hk0an"]
+_data = {
+&"RESET": SubResource("Animation_6ae5x"),
+&"score_event_popup": SubResource("Animation_w6vp3")
+}
+
+[node name="ScoreEventPopup" type="Control"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fk6ix")
+metadata/_custom_type_script = "uid://bq8w1nf7nytkw"
+
+[node name="Transform" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Transform"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -45.0
+offset_bottom = 45.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="NameLabel" type="Label" parent="Transform/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Name"
+label_settings = SubResource("LabelSettings_fk6ix")
+horizontal_alignment = 2
+
+[node name="ScoreLabel" type="Label" parent="Transform/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_w6vp3")
+horizontal_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("../Transform/VBoxContainer")
+libraries = {
+&"": SubResource("AnimationLibrary_hk0an")
+}
