@@ -276,6 +276,11 @@ path = "uid://doub5p4oiycg0"
 script = ExtResource("22_p6ops")
 path = "uid://chavdoc1obqn6"
 
+[node name="ScatterItem4" type="Node3D" parent="Underwater/ProtonScatter"]
+script = ExtResource("22_p6ops")
+proportion = 7
+path = "uid://cwjwsut8ju6wt"
+
 [node name="ScatterShape" type="Node3D" parent="Underwater/ProtonScatter"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 77.2988, -68.8464, -1629.54)
 script = ExtResource("23_kbuwq")
