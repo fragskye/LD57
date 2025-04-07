@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dewdjf5vhfomt"]
+[gd_scene load_steps=45 format=3 uid="uid://dewdjf5vhfomt"]
 
 [ext_resource type="Material" uid="uid://yaq2oyu01vsn" path="res://assets/sky.tres" id="1_0dwx2"]
 [ext_resource type="Script" uid="uid://gkx7trnu0yaw" path="res://src/environment.gd" id="1_00014"]
@@ -14,8 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://bv6bpx1oc3al8" path="res://assets/BeachItems/Chair/chair.tscn" id="11_4sbom"]
 [ext_resource type="PackedScene" uid="uid://b1uft6dcgbyvw" path="res://assets/BeachItems/Umbrella/umbrella.tscn" id="12_2bfpd"]
 [ext_resource type="PackedScene" uid="uid://g3nl1s7ycf7k" path="res://assets/BeachItems/Volleyball/Volleyball.tscn" id="13_3jj1w"]
+[ext_resource type="Texture2D" uid="uid://dy7c1f575fhu7" path="res://assets/cutouts/judges.png" id="15_4nqy1"]
 [ext_resource type="Script" uid="uid://ct4dcc7cw26vf" path="res://addons/proton_scatter/src/scatter.gd" id="15_rn5b3"]
 [ext_resource type="Script" uid="uid://dj546c7ln8pbw" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="16_4nqy1"]
+[ext_resource type="PackedScene" uid="uid://cbaprthc6p45h" path="res://assets/cutouts/crowd_1.tscn" id="16_yma5d"]
+[ext_resource type="PackedScene" uid="uid://vsky1c3yqk8e" path="res://assets/cutouts/crowd_2.tscn" id="17_454qq"]
 [ext_resource type="Script" uid="uid://bo06cxeh2vnnx" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="17_pgkm7"]
 [ext_resource type="Script" uid="uid://6n4yxmtnp8nv" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="18_yma5d"]
 [ext_resource type="Script" uid="uid://52oxbqpt1i6r" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="19_454qq"]
@@ -122,7 +125,7 @@ normal_texture = ExtResource("7_2eiut")
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_dm4p5"), SubResource("Terrain3DMeshAsset_7q7v2")])
 texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_pk5nr"), SubResource("Terrain3DTextureAsset_oqxhg")])
 
-[sub_resource type="Resource" id="Resource_rn5b3"]
+[sub_resource type="Resource" id="Resource_yma5d"]
 script = ExtResource("18_yma5d")
 amount = 2000
 enabled = true
@@ -131,7 +134,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_4nqy1"]
+[sub_resource type="Resource" id="Resource_454qq"]
 script = ExtResource("19_454qq")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -142,7 +145,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_pgkm7"]
+[sub_resource type="Resource" id="Resource_4yb3k"]
 script = ExtResource("20_4yb3k")
 iterations = 3
 offset_step = 0.2
@@ -154,7 +157,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_yma5d"]
+[sub_resource type="Resource" id="Resource_8ga8t"]
 script = ExtResource("21_8ga8t")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 100.0
@@ -170,9 +173,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_454qq"]
+[sub_resource type="Resource" id="Resource_p6ops"]
 script = ExtResource("16_4nqy1")
-stack = Array[ExtResource("17_pgkm7")]([SubResource("Resource_rn5b3"), SubResource("Resource_4nqy1"), SubResource("Resource_pgkm7"), SubResource("Resource_yma5d")])
+stack = Array[ExtResource("17_pgkm7")]([SubResource("Resource_yma5d"), SubResource("Resource_454qq"), SubResource("Resource_4yb3k"), SubResource("Resource_8ga8t")])
 
 [sub_resource type="Resource" id="Resource_g8bsm"]
 script = ExtResource("24_kmgvs")
@@ -253,6 +256,22 @@ transform = Transform3D(0.892875, -0.0213133, -0.4498, 0.11796, 0.975069, 0.1879
 [node name="Volleyball2" parent="Beach" instance=ExtResource("13_3jj1w")]
 transform = Transform3D(0.976921, -0.0445934, -0.208893, 0.0745424, 0.987655, 0.13777, 0.200171, -0.150162, 0.968185, 6.32336, 4.07017, -87.9727)
 
+[node name="Crowd1" parent="Beach" instance=ExtResource("16_yma5d")]
+transform = Transform3D(0.813583, -0.0212304, -0.581061, 0.0602638, 0.99703, 0.0479506, 0.578317, -0.0740287, 0.812446, 30.7675, 5.995, -79.2043)
+
+[node name="Crowd2" parent="Beach" instance=ExtResource("17_454qq")]
+transform = Transform3D(0.923013, -0.0325569, 0.383389, -0.00101929, 0.996203, 0.0870502, -0.384768, -0.0807392, 0.919475, 24.943, 5.76611, -80.1807)
+
+[node name="Judges" type="Node3D" parent="Beach"]
+transform = Transform3D(0.948748, -0.0329681, 0.314308, 0.00718144, 0.996536, 0.0828503, -0.315951, -0.0763469, 0.945699, 24.5797, 5.82111, -79.3134)
+
+[node name="Sprite3D" type="Sprite3D" parent="Beach/Judges"]
+transform = Transform3D(1, 7.45058e-09, -7.45058e-09, 0, 1, 3.25963e-09, 7.45058e-09, 1.62981e-09, 1, 0, 1.46999, 0)
+pixel_size = 0.003
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("15_4nqy1")
+
 [node name="Underwater" type="Node3D" parent="."]
 unique_name_in_owner = true
 
@@ -260,7 +279,7 @@ unique_name_in_owner = true
 script = ExtResource("15_rn5b3")
 render_mode = 1
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_454qq")
+modifier_stack = SubResource("Resource_p6ops")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://ct4dcc7cw26vf"

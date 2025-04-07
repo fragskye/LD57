@@ -102,6 +102,7 @@ func _on_skill_check_target_complete() -> void:
 		
 		car_battery_girl.rotation_degrees.y = 180.0
 		cutscene = true
+		EventBus.crowd_cheer.emit()
 		
 		cutscene_camera.make_current()
 		Global.environment.terrain_3d.set_camera(cutscene_camera)

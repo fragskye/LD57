@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbaprthc6p45h"]
+
+[ext_resource type="Script" uid="uid://d4cx4ax26wh2q" path="res://assets/cutouts/crowd.gd" id="1_l3mrn"]
+[ext_resource type="Texture2D" uid="uid://ynolgvll21aw" path="res://assets/cutouts/crowd_1_stand.png" id="2_8be00"]
+[ext_resource type="Texture2D" uid="uid://ch7bjvyf2d6y" path="res://assets/cutouts/crowd_1_cheer.png" id="2_e6r5u"]
+
+[node name="Crowd1" type="Node3D"]
+script = ExtResource("1_l3mrn")
+cheer_texture = ExtResource("2_e6r5u")
+
+[node name="SpriteTransform" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Sprite3D" type="Sprite3D" parent="SpriteTransform"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47, 0)
+pixel_size = 0.003
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_8be00")

@@ -17,8 +17,8 @@ func _process(delta: float) -> void:
 	if InputManager.get_input_state() != InputManager.InputState.GATHER_BATTERY:
 		return
 	
-	if Input.is_action_just_pressed("pause"):
-		InputManager.push_input_state(InputManager.InputState.MENU)
+	#if Input.is_action_just_pressed("pause"):
+		#InputManager.push_input_state(InputManager.InputState.MENU)
 
 func _on_input_state_changed(old_state: InputManager.InputState, new_state: InputManager.InputState) -> void:
 	if old_state == InputManager.InputState.MENU || new_state == InputManager.InputState.MENU:

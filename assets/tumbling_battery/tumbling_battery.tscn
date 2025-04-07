@@ -32,7 +32,7 @@ size = Vector2(0.15, 0.15)
 script = ExtResource("1_rjiij")
 camera = NodePath("CameraFollowPoint/CameraRig/Camera")
 keymash_strength = 15.0
-max_impulse = Vector3(0, 15, -325)
+max_impulse = Vector3(0, 15, -375)
 metadata/_custom_type_script = "uid://bmqyf81l0ols8"
 
 [node name="CameraFollowPoint" type="Node3D" parent="."]
