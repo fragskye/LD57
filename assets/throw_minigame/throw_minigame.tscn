@@ -11,8 +11,8 @@
 [node name="ThrowMinigame" type="Node3D"]
 process_mode = 1
 script = ExtResource("1_tspaa")
-hit_power_reward = 0.05
-miss_power_reward = -0.05
+hit_power_reward = 0.04
+miss_power_reward = -0.04
 skill_check_count = 40
 time_to_max = 20.0
 difficulties = Array[ExtResource("2_htcwl")]([ExtResource("3_ariq8"), ExtResource("4_x6o8v"), ExtResource("3_dji5i"), ExtResource("6_u1i87")])

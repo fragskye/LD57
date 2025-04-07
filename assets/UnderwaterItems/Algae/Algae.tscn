@@ -3,6 +3,3 @@
 [ext_resource type="PackedScene" uid="uid://btfahfwacolp5" path="res://assets/UnderwaterItems/Algae/seaweed.glb" id="1_6dfhu"]
 
 [node name="Algae" instance=ExtResource("1_6dfhu")]
-
-[node name="Cylinder" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 3.01337, 0, 0, 0, 1, 0, 1.751, 0)

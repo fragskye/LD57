@@ -38,15 +38,15 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "uid://biy0oqgheai66"
 },
-"Material.001": {
+"Rock": {
 "use_external/enabled": true,
 "use_external/path": "uid://dpf8pi1angkm8"
 }
 },
 "nodes": {
-"PATH:Sphere_005": {
+"PATH:BarnacleRock": {
 "generate/physics": true,
-"physics/shape_type": 1
+"physics/shape_type": 2
 }
 }
 }

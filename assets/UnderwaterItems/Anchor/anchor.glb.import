@@ -34,15 +34,15 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"Material.001": {
+"Anchor": {
 "use_external/enabled": true,
 "use_external/path": "uid://fqvkhng0d171"
 }
 },
 "nodes": {
-"PATH:Circle": {
+"PATH:Anchor": {
 "generate/physics": true,
-"physics/shape_type": 0
+"physics/shape_type": 2
 }
 }
 }

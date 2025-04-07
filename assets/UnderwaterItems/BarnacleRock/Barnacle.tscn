@@ -3,6 +3,3 @@
 [ext_resource type="PackedScene" uid="uid://h1p1cohb0x3e" path="res://assets/UnderwaterItems/BarnacleRock/barnaclerock.glb" id="1_ia5it"]
 
 [node name="Barnacle" instance=ExtResource("1_ia5it")]
-
-[node name="Sphere_005" parent="." index="0"]
-transform = Transform3D(0.0640532, 0.258194, -0.38094, 0.104421, 0.366426, 0.265915, 0.448192, -0.122271, -0.00751151, 0.503293, 1.08868, -0.301096)

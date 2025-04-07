@@ -48,9 +48,9 @@ _subresources={
 }
 },
 "nodes": {
-"PATH:Cylinder": {
+"PATH:Coral": {
 "generate/physics": true,
-"physics/shape_type": 0
+"physics/shape_type": 2
 }
 }
 }

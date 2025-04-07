@@ -30,6 +30,7 @@ size = Vector2(0.15, 0.15)
 [node name="TumblingBattery" type="Node3D" node_paths=PackedStringArray("camera")]
 script = ExtResource("1_rjiij")
 camera = NodePath("CameraFollowPoint/CameraRig/Camera")
+max_impulse = Vector3(0, 15, -275)
 metadata/_custom_type_script = "uid://bmqyf81l0ols8"
 
 [node name="CameraFollowPoint" type="Node3D" parent="."]
