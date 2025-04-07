@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b0eb4vyqpss4i"
-path="res://.godot/imported/castle.glb-266648777923c23107404a3e5ad3f637.scn"
+path="res://.godot/imported/castle.glb-fecdf4c1f4e750ffedf36cad7d08e925.scn"
 
 [deps]
 
-source_file="res://UnderwaterItems/Castle/castle.glb"
-dest_files=["res://.godot/imported/castle.glb-266648777923c23107404a3e5ad3f637.scn"]
+source_file="res://assets/UnderwaterItems/Castle/castle.glb"
+dest_files=["res://.godot/imported/castle.glb-fecdf4c1f4e750ffedf36cad7d08e925.scn"]
 
 [params]
 

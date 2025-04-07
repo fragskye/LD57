@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0o4salq6ki1d"
-path.s3tc="res://.godot/imported/castle_Material Base Color.png-99f01e3922fdc8c36966b782f8e4f4e9.s3tc.ctex"
+path.s3tc="res://.godot/imported/castle_Material Base Color.png-9cc0e603f950248fba9c5d6d4788e4ef.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://UnderwaterItems/Castle/castle_Material Base Color.png"
-dest_files=["res://.godot/imported/castle_Material Base Color.png-99f01e3922fdc8c36966b782f8e4f4e9.s3tc.ctex"]
+source_file="res://assets/UnderwaterItems/Castle/castle_Material Base Color.png"
+dest_files=["res://.godot/imported/castle_Material Base Color.png-9cc0e603f950248fba9c5d6d4788e4ef.s3tc.ctex"]
 
 [params]
 

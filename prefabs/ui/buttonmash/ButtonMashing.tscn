@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxixgkl8t8gxl"]
+
+[ext_resource type="Texture2D" uid="uid://cxr7ejd4rhg8r" path="res://assets/Textures/ui/unfilled_square.png" id="1_1nv0v"]
+[ext_resource type="Script" uid="uid://dnw2kh5dc78v6" path="res://prefabs/ui/buttonmash/ButtonMashing.gd" id="1_qoa2s"]
+[ext_resource type="FontFile" uid="uid://18mvslj0qhg0" path="res://fonts/morning_breeze/MorningBreeze-Bold.otf" id="2_qoa2s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ved1y"]
+font = ExtResource("2_qoa2s")
+font_size = 71
+
+[node name="ButtonMashing" type="CanvasLayer"]
+script = ExtResource("1_qoa2s")
+metadata/_custom_type_script = "uid://dnw2kh5dc78v6"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = -157.0
+offset_right = 39.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_1nv0v")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "A"
+label_settings = SubResource("LabelSettings_ved1y")
+horizontal_alignment = 1
+vertical_alignment = 1

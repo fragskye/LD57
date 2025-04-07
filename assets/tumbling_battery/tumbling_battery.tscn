@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkpdp6i0g56ji"]
+[gd_scene load_steps=11 format=3 uid="uid://dkpdp6i0g56ji"]
 
 [ext_resource type="Script" uid="uid://fm70cpajxi52" path="res://assets/tumbling_battery/camera_follow_point.gd" id="1_ak1jv"]
 [ext_resource type="Script" uid="uid://bmqyf81l0ols8" path="res://assets/tumbling_battery/tumbling_battery.gd" id="1_rjiij"]
 [ext_resource type="Script" uid="uid://bnvddg64wt3s1" path="res://assets/player/player_camera_rig.gd" id="3_o4c40"]
 [ext_resource type="Material" uid="uid://cpscc66uurao7" path="res://assets/vfx/ocean_particle.tres" id="4_0vjt0"]
+[ext_resource type="PackedScene" uid="uid://dxixgkl8t8gxl" path="res://prefabs/ui/buttonmash/ButtonMashing.tscn" id="5_aayfa"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_o4c40"]
 
@@ -30,6 +31,7 @@ size = Vector2(0.15, 0.15)
 [node name="TumblingBattery" type="Node3D" node_paths=PackedStringArray("camera")]
 script = ExtResource("1_rjiij")
 camera = NodePath("CameraFollowPoint/CameraRig/Camera")
+keymash_strength = 15.0
 metadata/_custom_type_script = "uid://bmqyf81l0ols8"
 
 [node name="CameraFollowPoint" type="Node3D" parent="."]
@@ -73,3 +75,5 @@ lifetime = 4.0
 visibility_aabb = AABB(-50, -50, -50, 100, 100, 100)
 process_material = SubResource("ParticleProcessMaterial_aayfa")
 draw_pass_1 = SubResource("QuadMesh_1w8se")
+
+[node name="ButtonMashing" parent="." instance=ExtResource("5_aayfa")]

@@ -2,13 +2,15 @@ class_name TumblingBattery
 extends Node3D
 
 @onready var car_battery : PackedScene = preload("res://assets/BeachItems/CarBattery/battery_1.tscn")
-@onready var camera_follow : CameraFollowPoint3D = %CameraFollowPoint
-@onready var vfx_follow: CameraFollowPoint3D = %VFXFollowPoint
+@onready var camera_follow : CameraFollowPoint3D = $CameraFollowPoint
+@onready var vfx_follow: CameraFollowPoint3D = $VFXFollowPoint
+@onready var button_mash : ButtonMashing = $ButtonMashing
 
 @export var camera : Camera3D
 @export var still_time_timeout: float = 1.0
 
 @export var power: float = 0.0
+@export var keymash_strength : float = 2.0
 
 var cpu: CPUData = null
 
@@ -23,6 +25,7 @@ func _ready() -> void:
 	# TODO: Pull force from throwing minigame
 	InputManager.input_state_changed.connect(_on_input_state_changed)
 	EventBus.player_turn_started.connect(_on_player_turn_started)
+	button_mash.on_successful_keymash.connect(_on_successful_keymash)
 
 func reset() -> void:
 	active_battery = null
@@ -75,12 +78,30 @@ func _on_input_state_changed(old_state: InputManager.InputState, new_state: Inpu
 		InputManager.InputState.BATTERY_CAMERA:
 			show()
 			camera.make_current()
+			if cpu == null:
+				button_mash.enable()
 			Global.environment.terrain_3d.set_camera(camera)
 			_spawn_car_battery()
 			process_mode = Node.PROCESS_MODE_PAUSABLE
 		_:
 			hide()
+			button_mash.disable()
 			process_mode = Node.PROCESS_MODE_DISABLED
 
 func _on_player_turn_started(player_data: PlayerData) -> void:
 	cpu = player_data.cpu
+	
+func _on_successful_keymash() -> void:
+	if active_battery == null:
+		return
+	
+	var direction : Vector3 = Vector3(0, 1, 0)
+	
+	if cpu == null:
+		var camera_direction : Vector3 = (-camera_follow.global_basis.z).normalized()
+		camera_direction.y = 0
+		direction += camera_direction
+	else:
+		direction += Vector3(randf(), 0, randf())
+
+	active_battery.apply_impulse(keymash_strength * direction)
