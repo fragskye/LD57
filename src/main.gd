@@ -1,6 +1,7 @@
 class_name Main extends Node3D
 
 @onready var environment: GameEnvironment = %Environment
+@onready var gather_battery: GatherBattery = %GatherBattery
 @onready var throw_minigame: ThrowMinigame = %ThrowMinigame
 @onready var tumbling_battery: TumblingBattery = %TumblingBattery
 
@@ -29,6 +30,7 @@ func _ready() -> void:
 		player_data.cpu = unused_cpus[cpu_index]
 		unused_cpus.remove_at(cpu_index)
 		Global.players.push_back(player_data)
+	InputManager.input_state_changed.connect(_on_input_state_changed)
 	EventBus.players_initialized.emit()
 	EventBus.player_turn_started.emit(Global.players[0])
 	EventBus.throw_area_entered.connect(_on_throw_area_entered)
@@ -59,6 +61,7 @@ func _on_tumbling_battery_score_result(score: int) -> void:
 	EventBus.player_turn_started.emit(Global.players[current_player])
 	if current_player_data.cpu == null:
 		Engine.time_scale = 1.0
+		gather_battery.reset()
 		InputManager.switch_input_state(InputManager.InputState.GATHER_BATTERY)
 	else:
 		throw_minigame.reset()
@@ -67,3 +70,12 @@ func _on_tumbling_battery_score_result(score: int) -> void:
 func _on_throw_area_entered() -> void:
 	throw_minigame.reset()
 	InputManager.switch_input_state(InputManager.InputState.THROW_MINIGAME)
+
+func _on_input_state_changed(old_state: InputManager.InputState, new_state: InputManager.InputState) -> void:
+	if old_state == InputManager.InputState.MENU || new_state == InputManager.InputState.MENU:
+		return
+	
+	match new_state:
+		InputManager.InputState.LEVEL_LOAD:
+			gather_battery.reset()
+			InputManager.switch_input_state(InputManager.InputState.GATHER_BATTERY)

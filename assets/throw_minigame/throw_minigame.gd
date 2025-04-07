@@ -6,6 +6,7 @@ const BATTERY_1: PackedScene = preload("res://assets/BeachItems/CarBattery/batte
 
 @onready var throw_camera: Camera3D = %ThrowCamera
 @onready var car_battery_girl: CarBatteryGirl = %CarBatteryGirl
+@onready var held_battery: CarBattery = %HeldBattery
 @onready var cutscene_camera: Camera3D = %CutsceneCamera
 @onready var throw_minigame_layer: CanvasLayer = %ThrowMinigameLayer
 @onready var skill_check: SkillCheck = %SkillCheck
@@ -48,6 +49,7 @@ func reset() -> void:
 	skill_check.reset()
 	cutscene = false
 	car_battery_girl.spin_pose()
+	held_battery.show()
 	spin_sfx.play()
 	spin_sfx.pitch_scale = 0.01
 	if cpu != null:
@@ -107,6 +109,8 @@ func _on_skill_check_target_complete() -> void:
 	if skill_checks_complete >= scalar * skill_check_count:
 		Engine.time_scale = 1.0
 		
+		held_battery.hide()
+		car_battery_girl.victory_pose()
 		car_battery_girl.rotation_degrees.y = 180.0
 		cutscene = true
 		EventBus.crowd_cheer.emit()
@@ -126,7 +130,10 @@ func _on_skill_check_target_complete() -> void:
 		battery.global_position = car_battery_girl.global_position + Vector3(0.0, 1.0, 0.0)
 		battery.linear_velocity = remap(power, 0.0, 1.0, 0.7, 1.7) * Vector3(0.0, 10.0, -25.0)
 		
-		await get_tree().create_timer(4.25, false).timeout
+		await get_tree().create_timer(2.0, false).timeout
+		car_battery_girl.lift_pose()
+		
+		await get_tree().create_timer(2.25, false).timeout
 		
 		battery.queue_free()
 		power_result.emit(power)

@@ -9,10 +9,13 @@ func reset_pose() -> void:
 	animation_player.play("RESET")
 
 func spin_pose() -> void:
-	pass
+	animation_player.play("SPIN")
 
-func lift_pose() -> void:
+func rummage_pose() -> void:
 	animation_player.play("BEND")
 
+func lift_pose() -> void:
+	animation_player.play("CHEER")
+
 func victory_pose() -> void:
-	pass
+	animation_player.play("CELEBRATE")
