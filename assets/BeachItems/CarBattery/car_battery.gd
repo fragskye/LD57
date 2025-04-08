@@ -51,8 +51,6 @@ func _on_collision(body: Node) -> void:
 	
 	var crash_intensity: float = clampf(remap(impact_velocity, 2.0, 30.0, 0.0, 1.0), 0.0, 1.0)
 	crash_intensity = pow(crash_intensity, 0.9)
-	print(impact_velocity)
-	print(crash_intensity)
 	crash_sfx.stream = crash_audio.pick_random()
 	crash_sfx.pitch_scale = randf_range(0.9, 1.1)
 	crash_sfx.volume_linear = remap(crash_intensity, 0.0, 1.0, 0.1, 0.9)

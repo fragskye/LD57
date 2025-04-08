@@ -10,6 +10,7 @@ shader_parameter/gradient_center = Vector2(0.5, 0.5)
 shader_parameter/direction = Vector2(2, 0)
 
 [node name="PauseLayer" type="CanvasLayer"]
+layer = 20
 script = ExtResource("1_i3dqs")
 
 [node name="PauseMenu" type="Control" parent="."]
