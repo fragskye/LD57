@@ -4,6 +4,9 @@ class_name PlayerScore extends PanelContainer
 @onready var player_name: Label = %PlayerName
 @onready var player_score: Label = %PlayerScore
 
+@export var player_avatar: Texture2D = null
+@export var cpu_avatar: Texture2D = null
+
 @export var active_turn: bool = false:
 	set(value):
 		var old_value: bool = active_turn
@@ -27,6 +30,10 @@ var player_data: PlayerData = null:
 			player_name.text = player_data.name
 			player_score.text = "%d points" % player_data.score
 			player_data.score_changed.connect(_on_player_data_score_changed)
+			if player_data.cpu == null:
+				player_icon.texture = player_avatar
+			else:
+				player_icon.texture = cpu_avatar
 
 func _on_player_data_score_changed(new_score: int) -> void:
 	player_score.text = "%d points" % player_data.score
