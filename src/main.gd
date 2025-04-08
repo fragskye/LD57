@@ -4,6 +4,8 @@ class_name Main extends Node3D
 @onready var gather_battery: GatherBattery = %GatherBattery
 @onready var throw_minigame: ThrowMinigame = %ThrowMinigame
 @onready var tumbling_battery: TumblingBattery = %TumblingBattery
+@onready var start_camera: Camera3D = %StartCamera
+@onready var start_layer: CanvasLayer = %StartLayer
 
 @export var cpu_count: int = 0
 @export var cpu_list: Array[CPUData] = []
@@ -32,8 +34,9 @@ func _ready() -> void:
 		Global.players.push_back(player_data)
 	InputManager.input_state_changed.connect(_on_input_state_changed)
 	EventBus.players_initialized.emit()
-	EventBus.player_turn_started.emit(Global.players[0])
-	EventBus.throw_area_entered.connect(_on_throw_area_entered)
+	
+	start_camera.make_current()
+	environment.terrain_3d.set_camera(start_camera)
 
 func _on_gather_battery_gathered() -> void:
 	throw_minigame.reset()
@@ -79,3 +82,10 @@ func _on_input_state_changed(old_state: InputManager.InputState, new_state: Inpu
 		InputManager.InputState.LEVEL_LOAD:
 			gather_battery.reset()
 			InputManager.switch_input_state(InputManager.InputState.GATHER_BATTERY)
+
+func _on_play_button_pressed() -> void:
+	start_layer.hide()
+	start_layer.process_mode = Node.PROCESS_MODE_DISABLED
+	gather_battery.reset()
+	InputManager.switch_input_state(InputManager.InputState.GATHER_BATTERY)
+	EventBus.player_turn_started.emit(Global.players[0])

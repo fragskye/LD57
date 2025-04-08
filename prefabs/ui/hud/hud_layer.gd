@@ -8,6 +8,7 @@ const PLAYER_SCORE: PackedScene = preload("res://prefabs/ui/hud/player_score.tsc
 func _ready() -> void:
 	EventBus.players_initialized.connect(_on_players_initialized)
 	EventBus.player_turn_started.connect(_on_player_turn_started)
+	hud_menu.hide()
 
 func _on_players_initialized() -> void:
 	for i: int in Global.player_count:
@@ -18,6 +19,7 @@ func _on_players_initialized() -> void:
 	_sort_player_scores()
 
 func _on_player_turn_started(player_data: PlayerData) -> void:
+	hud_menu.show()
 	for node: Node in player_scores.get_children():
 		var player_score: PlayerScore = node as PlayerScore
 		player_score.active_turn = player_score.player_data.id == player_data.id

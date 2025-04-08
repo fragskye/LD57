@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b15tlakq3bnb7"]
+[gd_scene load_steps=17 format=3 uid="uid://b15tlakq3bnb7"]
 
 [ext_resource type="Script" uid="uid://56edevjlqb0g" path="res://src/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dewdjf5vhfomt" path="res://environment.tscn" id="1_ig7tw"]
@@ -14,6 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://bd3husuqtgvie" path="res://prefabs/ui/hud/hud_layer.tscn" id="10_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dlh03lyg72703" path="res://assets/BeachItems/PalmTree/palm_tree.tscn" id="13_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://b7hq23lvdlma7" path="res://prefabs/ui/results/results.tscn" id="14_w48qg"]
+[ext_resource type="FontFile" uid="uid://18mvslj0qhg0" path="res://fonts/morning_breeze/MorningBreeze-Bold.otf" id="15_vivmo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2cqfq"]
+font = ExtResource("15_vivmo")
+font_size = 100
 
 [node name="Main" type="Node3D"]
 process_mode = 3
@@ -49,6 +54,65 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1017.18, 105.285, 946.182)
 
 [node name="ResultsLayer" parent="." instance=ExtResource("14_w48qg")]
 
+[node name="StartCamera" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.307357, -0.222145, -0.925302, 0, 0.97237, -0.233445, 0.951594, 0.071751, 0.298864, -1009.41, 104.996, 920.018)
+
+[node name="StartLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Control" type="Control" parent="StartLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="StartLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -429.0
+offset_top = -50.0
+offset_right = 429.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Treats for Charybdis"
+label_settings = SubResource("LabelSettings_2cqfq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="StartLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="StartLayer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="StartLayer/Control/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.5
+offset_top = -56.0
+offset_right = 42.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "    Play    "
+
 [connection signal="gathered" from="GatherBattery" to="." method="_on_gather_battery_gathered"]
 [connection signal="power_result" from="ThrowMinigame" to="." method="_on_throw_minigame_power_result"]
 [connection signal="score_result" from="TumblingBattery" to="." method="_on_tumbling_battery_score_result"]
+[connection signal="pressed" from="StartLayer/Control/MarginContainer/Control/PlayButton" to="." method="_on_play_button_pressed"]
