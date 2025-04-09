@@ -10,6 +10,10 @@ void sky() {
 	// Called for every visible pixel in the sky background, as well as all pixels
 	// in the radiance cubemap.
 	COLOR = sky_color_intensity * sky_color;
+	#if CURRENT_RENDERER == RENDERER_COMPATIBILITY
+	float ray_offset = texture(value_noise_texture, SKY_COORDS * 4.0).w;
+	#else
 	float ray_offset = texture(value_noise_texture, SCREEN_UV).w;
+	#endif
 	FOG = volumetric_fog(POSITION + EYEDIR * 1000.0, POSITION, ray_offset);
 }

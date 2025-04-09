@@ -17,6 +17,7 @@ var current_player_data: PlayerData:
 		
 var _max_rounds : int = 3
 var _curr_round : int = 0
+var _shader_time: float = 0.0
 
 func get_current_round() -> int:
 	return _curr_round + 1
@@ -37,6 +38,10 @@ func _ready() -> void:
 	
 	start_camera.make_current()
 	environment.terrain_3d.set_camera(start_camera)
+
+func _process(delta: float) -> void:
+	_shader_time += delta
+	RenderingServer.global_shader_parameter_set("shader_time", _shader_time)
 
 func _on_gather_battery_gathered() -> void:
 	throw_minigame.reset()

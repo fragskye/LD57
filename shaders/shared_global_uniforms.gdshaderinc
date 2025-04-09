@@ -3,5 +3,6 @@
 
 global uniform sampler2D value_noise_texture : filter_nearest, repeat_enable;
 global uniform float value_noise_texture_size;
+global uniform float shader_time;
 
 #endif

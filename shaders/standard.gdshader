@@ -44,7 +44,7 @@ void fragment() {
 	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
 	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
 	ROUGHNESS = roughness_tex * roughness;
-	
+
 	float ray_offset = texture(value_noise_texture, SCREEN_UV).w;
 	FOG = volumetric_fog(world_pos, CAMERA_POSITION_WORLD, ray_offset);
 }

@@ -1,5 +1,7 @@
 shader_type spatial;
 
+#include "shared_global_uniforms.gdshaderinc"
+
 render_mode diffuse_lambert_wrap, specular_toon;
 
 const int WAVES = 5;
@@ -26,7 +28,7 @@ void vertex() {
 	for (int wave = 0; wave <= WAVES; wave++) {
 		float frequency = 0.1 * pow(1.8, float(wave));
 		float amplitude = 0.8 * pow(0.5, float(wave));
-		float phase = 0.0 + TIME;
+		float phase = 0.0 + shader_time;
 		if (wave < WAVES) {
 			// Sum of sines
 			vec2 direction = normalize(DIRECTIONS[wave]);
@@ -53,10 +55,15 @@ void vertex() {
 
 void fragment() {
     float depth = textureLod(depth_texture, SCREEN_UV, 0.0).r;
-	vec4 upos = INV_PROJECTION_MATRIX * vec4(SCREEN_UV * 2.0 - 1.0, depth, 1.0);
+	#if CURRENT_RENDERER == RENDERER_COMPATIBILITY
+	vec3 ndc = vec3(SCREEN_UV, depth) * 2.0 - 1.0;
+	#else
+	vec3 ndc = vec3(SCREEN_UV * 2.0 - 1.0, depth);
+	#endif
+	vec4 upos = INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
     vec3 pixel_position = upos.xyz / upos.w;
 	float distance_past_surface = VERTEX.z - pixel_position.z;
-	
+
 	float foam = smoothstep(0.4, 0.2, distance_past_surface);
 	ALBEDO = mix(albedo, vec3(1.0), foam);
 	ROUGHNESS = mix(0.01, 1.0, foam);

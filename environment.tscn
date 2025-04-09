@@ -126,7 +126,7 @@ normal_texture = ExtResource("7_2eiut")
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_dm4p5"), SubResource("Terrain3DMeshAsset_7q7v2")])
 texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_pk5nr"), SubResource("Terrain3DTextureAsset_oqxhg")])
 
-[sub_resource type="Resource" id="Resource_4yb3k"]
+[sub_resource type="Resource" id="Resource_454qq"]
 script = ExtResource("18_yma5d")
 amount = 2000
 enabled = true
@@ -135,7 +135,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_8ga8t"]
+[sub_resource type="Resource" id="Resource_4yb3k"]
 script = ExtResource("19_454qq")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -146,7 +146,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_p6ops"]
+[sub_resource type="Resource" id="Resource_8ga8t"]
 script = ExtResource("20_4yb3k")
 iterations = 3
 offset_step = 0.2
@@ -158,7 +158,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_kbuwq"]
+[sub_resource type="Resource" id="Resource_p6ops"]
 script = ExtResource("21_8ga8t")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 100.0
@@ -174,9 +174,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_kmgvs"]
+[sub_resource type="Resource" id="Resource_kbuwq"]
 script = ExtResource("16_4nqy1")
-stack = Array[ExtResource("17_pgkm7")]([SubResource("Resource_4yb3k"), SubResource("Resource_8ga8t"), SubResource("Resource_p6ops"), SubResource("Resource_kbuwq")])
+stack = Array[ExtResource("17_pgkm7")]([SubResource("Resource_454qq"), SubResource("Resource_4yb3k"), SubResource("Resource_8ga8t"), SubResource("Resource_p6ops")])
 
 [sub_resource type="Resource" id="Resource_g8bsm"]
 script = ExtResource("24_kmgvs")
@@ -287,7 +287,8 @@ unique_name_in_owner = true
 script = ExtResource("15_rn5b3")
 render_mode = 1
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_kmgvs")
+dbg_disable_thread = true
+modifier_stack = SubResource("Resource_kbuwq")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://ct4dcc7cw26vf"

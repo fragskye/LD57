@@ -26,6 +26,7 @@ render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_toon,specular_toon,ski
 #endif
 
 global uniform sampler2D value_noise_texture : filter_nearest, repeat_enable;
+global uniform float shader_time;
 
 float saturate(float x) {
 	return clamp(x, 0.0, 1.0);
@@ -83,7 +84,7 @@ vec4 volumetric_fog(vec3 frag_pos, vec3 ray_pos, float ray_offset) {
 				float new_thickness = step_size;
 				fog_thickness += new_thickness * 0.5;
 				float fog_transmittance = exp(-fog_thickness * fog_density);
-				float fog_light_shaft = remap01_clamp(depth_frac, 1.0, 0.8) * remap01_clamp(texture(fog_light_shaft_texture, vec3(sample_pos.xz * 0.003 + TIME * vec2(-0.01), mod(TIME * 0.05, 1.0))).r * 5.0 - 3.0, 0.6, 0.8);
+				float fog_light_shaft = remap01_clamp(depth_frac, 1.0, 0.8) * remap01_clamp(texture(fog_light_shaft_texture, vec3(sample_pos.xz * 0.003 + shader_time * vec2(-0.01), mod(shader_time * 0.05, 1.0))).r * 5.0 - 3.0, 0.6, 0.8);
 				float sun_transmittance = exp(-distance_to_top * fog_light_density * max(0.5, 1.0 - fog_light_shaft));//1.0 - pow(1.0 - remap01(distance_to_top, fog_plane_top - fog_plane_bottom, 0.0), 2.0);
 				fog_light += sun_transmittance * fog_transmittance * step_size;
 				fog_thickness += new_thickness * 0.5;
